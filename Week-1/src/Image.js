@@ -1,15 +1,17 @@
 import { products } from '~/constants/Products.js';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+const Image = (props) => {
+  let {title, imageUrl, width, hight, alt } = props
 
-class Image extends Component{
-  render() {
-    return (
-        products.map((product) => (
-          <img key={product.id} style={ {width: 200, height: 150} }src={product.imageUrl} />
-        ))
-    )
-  }
+  return(
+    <div>
+      <img style={{ width: width, height: hight}} src={ imageUrl }
+        alt={alt == '' ? title : alt }
+      />
+      <span> { title } </span>
+    </div>
+  )
 
 }
 
