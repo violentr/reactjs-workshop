@@ -1,25 +1,17 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
-import fetchRepos from '~/src/Github.js'
-
-import { countRepos } from '~/src/Helper.js'
+import helpers from '~/src/Helper.js'
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = { repos: []}
-  }
-  componentDidMount(){
-    fetchRepos()
-      .then((repos) => {
-        this.setState({ repos })
-      })
-  }
   render() {
-    const { repos } = this.state
+    let { add, substract, multiply, divide } = helpers
     return (
       <div>
         Hello World!
+        <p> 3 + 4 = { add(3, 4) } </p>
+        <p> 5 + 3 = { substract(5, 3) }</p>
+        <p> 5 * 3 = { multiply(5, 3) }</p>
+        <p> 6 / 4 = { divide(6, 4) }</p>
       </div>
     );
   }
