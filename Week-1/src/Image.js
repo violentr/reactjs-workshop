@@ -8,7 +8,6 @@ const Image = (props) => {
       <img style={{ width: width, height: height}} src={ imageUrl }
         alt={alt == '' ? title : alt }
       />
-      <span> { title } </span>
     </div>
   )
 
