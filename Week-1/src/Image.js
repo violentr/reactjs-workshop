@@ -1,4 +1,4 @@
-import { products } from '~/constants/Products.js';
+import { products } from '../constants/Products.js';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 const Image = (props) => {
