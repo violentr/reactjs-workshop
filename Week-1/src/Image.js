@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+
 const Image = (props) => {
-  let {title, imageUrl, width, height, alt } = props;
+  let {title, imageUrl, width, height, alt } = props
   return(
     <div>
       <img style={{ width, height}} src={ imageUrl }
@@ -9,7 +10,5 @@ const Image = (props) => {
       />
     </div>
   )
-
-};
-
-export default Image;
+}
+export default Image

@@ -9,6 +9,6 @@ const ProductCard = (props) =>(
     <TextBox title={ props.title }/>
     <Price price={ props.price } />
   </div>
-);
+)
 
-export default ProductCard;
+export default ProductCard

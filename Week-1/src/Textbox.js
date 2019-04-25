@@ -4,4 +4,4 @@ const TextBox = (props) =>(
   <span> {props.title} </span>
 )
 
-export default TextBox;
+export default TextBox

@@ -17,4 +17,4 @@ const Catalog = (props) => {
     </div>
   )
 }
-export default Catalog;
+export default Catalog
