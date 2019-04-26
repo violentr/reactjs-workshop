@@ -1,22 +1,27 @@
 {
-  "name": "first_app",
+  "name": "second_app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "lint":  "eslint src/**/*.js; exit 0"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "superagent": "^5.0.2"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3"
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4"
   }
 }
