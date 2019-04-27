@@ -1,10 +1,10 @@
 import React from 'react'
-import BasketContext from '~/context/BasketContext.js'
+import { BasketConsumer } from '~/context/BasketContext.js'
 
 const AddToBasket = () => (
-  <BasketContext.Consumer >
+  <BasketConsumer >
     {context => <button> Add To Basket { context.counter }</button>}
-  </BasketContext.Consumer>
+  </BasketConsumer>
 )
 
 export default AddToBasket
