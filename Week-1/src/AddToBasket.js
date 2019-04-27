@@ -3,7 +3,7 @@ import { BasketConsumer } from '~/context/BasketContext.js'
 
 const AddToBasket = () => (
   <BasketConsumer >
-    {context => <button> Add To Basket { context.counter }</button>}
+    {context => <button onClick={context}> Add To Basket </button>}
   </BasketConsumer>
 )
 
