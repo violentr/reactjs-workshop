@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { products } from '../constants/Products.js'
 import Catalog from './Catalog.js'
+import BasketContext  from '~/context/BasketContext.js'
 
 class App extends Component {
   constructor(props){
@@ -10,10 +11,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <button> Basket {this.state.counter} </button>
-        <Catalog products={ products } />
-      </div>
+        <BasketContext.Provider value={this.state}>
+          <Catalog products={ products } />
+        </BasketContext.Provider>
+      </Fragment>
     );
   }
 }
