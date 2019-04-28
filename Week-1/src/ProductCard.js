@@ -9,7 +9,7 @@ const ProductCard = (props) =>(
     <Image {...props} />
     <TextBox title={ props.title }/>
     <Price price={ props.price } />
-    <BasketButton />
+    <BasketButton {...props}/>
   </div>
 )
 
