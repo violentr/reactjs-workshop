@@ -6,7 +6,7 @@ const AddToBasket = (props) => (
     <BasketConsumer >
       {context =>
           <Fragment >
-            <button onClick={() => context(props.title)}> Add To Basket  </button>
+            <button onClick={() => context(props)}> Add To Basket  </button>
           </Fragment>
       }
     </BasketConsumer>
