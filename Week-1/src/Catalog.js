@@ -10,7 +10,7 @@ const Catalog = (props) => {
       {
        products.map((product) => (
           <ProductCard key={product.id}
-            {...product} {...options} addProduct={props.addProduct}
+            {...product} {...options}
           />
         ))
       }

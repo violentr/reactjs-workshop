@@ -1,6 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import { products } from '~/constants/Products.js'
-import Catalog from '~/src/Catalog.js'
 import { BasketProvider} from '~/context/BasketContext.js'
 
 class CartContainer extends Component {
@@ -24,7 +22,7 @@ class CartContainer extends Component {
       <Fragment >
         <button> Basket { this.totalItems() } </button>
         <BasketProvider value={this.addProduct}>
-          <Catalog products={ products } />
+          { this.props.children }
         </BasketProvider>
       </Fragment>
     )
