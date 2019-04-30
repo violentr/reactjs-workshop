@@ -10,7 +10,7 @@ class CartContainer extends Component {
   }
 
   addProduct(product){
-    this.setState(state => { return state.products.push(product) })
+    this.setState({products: [...this.state.products, product]})
   }
 
   totalItems(){
