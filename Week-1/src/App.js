@@ -1,15 +1,13 @@
-import React, { Component } from 'react'
-import { products } from '../constants/Products.js'
-import Catalog from './Catalog.js'
+import React, { Fragment } from 'react'
+import CartContainer from '~/containers/CartContainer.js'
+import Catalog from '~/src/Catalog.js'
+import { products } from '~/constants/Products.js'
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Catalog products={ products } />
-      </div>
-    );
-  }
-}
-
+const App = () => (
+  <Fragment>
+    <CartContainer>
+      <Catalog products={ products } />
+    </CartContainer>
+  </Fragment>
+);
 export default App;
