@@ -4,6 +4,7 @@ import Catalog from '~/src/Catalog.js'
 import { products } from '~/constants/Products.js'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { mainPath, aboutPath, productPath, productsPath } from '~/src/routes/helpers.js'
+import Product from '~/src/components/views/Product/index.js'
 
 const App = () => (
   <Router>
@@ -11,7 +12,9 @@ const App = () => (
       <Route path={ aboutPath() } exact strict render={() => <div> About page</div>} />
       <Route path={ mainPath() }  exact strict render={() => <div> Main page </div>} />
       <Route path={ productsPath() } exact strict render={() => <div> All Products page</div>} />
-      <Route path={ productPath() } exact strict render={() => <div> Product page</div>} />
+      <Route path={ productPath() } render={ ({ match }) => (
+        <Product id={match.params.id} />
+      )} />
       <Route path="*" exact strict render={() => <div> Page not found </div>} />
     </Switch>
     <Fragment>
