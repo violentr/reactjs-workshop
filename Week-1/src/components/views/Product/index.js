@@ -1,10 +1,13 @@
 import React, { Fragment } from 'react'
 import ProductCard from '~/src/ProductCard.js'
 import { products } from '~/constants/Products.js'
+import NotFound from '~/src/components/views/NotFound/index.js'
+
 const selectProduct = (id) => {
   let options = { width: 200, height: 150, alt: ''}
   let item = products.filter((item) => item.id == id )[0]
-  return <ProductCard {...item} {...options}/>
+
+  return item ? <ProductCard {...item} {...options}/> : <NotFound />
 }
 const Product = ({ id }) => (
   <Fragment>
