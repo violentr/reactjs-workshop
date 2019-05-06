@@ -7,7 +7,7 @@ import { default as BasketButton} from './AddToBasket.js'
 const ProductCard = (props) =>(
   <div>
     <Image {...props} />
-    <TextBox title={ props.title }/>
+    <TextBox {...props}/>
     <Price price={ props.price } />
     <BasketButton {...props}/>
   </div>

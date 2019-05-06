@@ -7,7 +7,7 @@ const Products = (props) => (
   <Fragment>
     <h3> All Products Page </h3>
     <CartContainer {...props}>
-      <Catalog products={ products } />
+      <Catalog products={ products } {...props}/>
     </CartContainer>
   </Fragment>
 )
