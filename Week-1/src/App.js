@@ -7,13 +7,14 @@ import { mainPath, aboutPath, productPath, productsPath } from '~/src/routes/hel
 import Product from '~/src/components/views/Product/index.js'
 import Main from '~/src/components/views/Main/index.js'
 import About from '~/src/components/views/About/index.js'
+import Products from '~/src/components/views/Products/index.js'
 
 const App = () => (
   <Router>
     <Switch>
       <Route path={ aboutPath() } exact strict component={About} />
       <Route path={ mainPath() }  exact strict component={Main} />
-      <Route path={ productsPath() } exact strict render={() => <div> All Products page</div>} />
+      <Route path={ productsPath() } exact strict component={Products} />
       <Route path={ productPath() } render={ ({ match }) => (
         <Product id={match.params.id} />
       )} />
