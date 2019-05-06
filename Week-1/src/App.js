@@ -6,11 +6,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { mainPath, aboutPath, productPath, productsPath } from '~/src/routes/helpers.js'
 import Product from '~/src/components/views/Product/index.js'
 import Main from '~/src/components/views/Main/index.js'
+import About from '~/src/components/views/About/index.js'
 
 const App = () => (
   <Router>
     <Switch>
-      <Route path={ aboutPath() } exact strict render={() => <div> About page</div>} />
+      <Route path={ aboutPath() } exact strict component={About} />
       <Route path={ mainPath() }  exact strict component={Main} />
       <Route path={ productsPath() } exact strict render={() => <div> All Products page</div>} />
       <Route path={ productPath() } render={ ({ match }) => (
