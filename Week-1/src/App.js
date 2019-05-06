@@ -1,7 +1,4 @@
 import React, { Fragment } from 'react'
-import CartContainer from '~/containers/CartContainer.js'
-import Catalog from '~/src/Catalog.js'
-import { products } from '~/constants/Products.js'
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom'
 import { mainPath, aboutPath, productPath, productsPath } from '~/src/routes/helpers.js'
 import Product from '~/src/components/views/Product/index.js'
@@ -32,12 +29,7 @@ const App = () => (
           <Product id={match.params.id} />
         )} />
       <Route path="*" exact strict component={NotFound} />
-    </Switch>
-      <Fragment>
-        <CartContainer>
-          <Catalog products={ products } />
-        </CartContainer>
-      </Fragment>
+      </Switch>
     </Router>
   </Fragment>
 )
