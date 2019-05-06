@@ -8,6 +8,7 @@ import Product from '~/src/components/views/Product/index.js'
 import Main from '~/src/components/views/Main/index.js'
 import About from '~/src/components/views/About/index.js'
 import Products from '~/src/components/views/Products/index.js'
+import NotFound from '~/src/components/views/NotFound/index.js'
 
 const App = () => (
   <Router>
@@ -18,7 +19,7 @@ const App = () => (
       <Route path={ productPath() } render={ ({ match }) => (
         <Product id={match.params.id} />
       )} />
-      <Route path="*" exact strict render={() => <div> Page not found </div>} />
+      <Route path="*" exact strict component={NotFound} />
     </Switch>
     <Fragment>
       <CartContainer>
