@@ -3,10 +3,10 @@ import CartContainer from '~/containers/CartContainer.js'
 import { products } from '~/constants/Products.js'
 import Catalog from '~/src/Catalog.js'
 
-const Products = () => (
+const Products = (props) => (
   <Fragment>
     <h3> All Products Page </h3>
-    <CartContainer>
+    <CartContainer {...props}>
       <Catalog products={ products } />
     </CartContainer>
   </Fragment>
