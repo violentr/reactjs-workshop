@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCard from './ProductCard.js'
+import ProductCard from './ProductCard/Product.js'
 
 const Catalog = (props) => {
   let { products } = props

@@ -1,8 +1,8 @@
 import React from 'react'
 import Image from './Image.js'
-import TextBox from './Textbox.js'
-import Price from './Price.js'
-import { default as BasketButton} from './AddToBasket.js'
+import TextBox from '~/src/ProductCard/Textbox.js'
+import Price from '~/src/ProductCard/Price.js'
+import { default as BasketButton} from '~/src/ProductCard/Basket.js'
 
 const ProductCard = (props) =>(
   <div>

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import CartContainer from '~/containers/CartContainer.js'
-import { products } from '~/constants/Products.js'
+import CartContainer from '~/src/containers/CartContainer.js'
+import { products } from '~/src/constants/Products.js'
 import Catalog from '~/src/Catalog.js'
 
 const Products = (props) => (

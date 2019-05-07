@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react'
-import { BasketConsumer } from '~/context/BasketContext.js'
+import React, { Fragment } from 'react'
+import { BasketConsumer } from '~/src/context/BasketContext.js'
 
-const AddToBasket = (props) => (
+const Basket = (props) => (
   <Fragment >
     <BasketConsumer >
       {context =>
@@ -13,5 +13,5 @@ const AddToBasket = (props) => (
   </Fragment>
 )
 
-export default AddToBasket
+export default Basket
 

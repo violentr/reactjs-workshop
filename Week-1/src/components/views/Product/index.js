@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import ProductCard from '~/src/ProductCard.js'
-import { products } from '~/constants/Products.js'
+import ProductCard from '~/src/ProductCard/Product.js'
+import { products } from '~/src/constants/Products.js'
 import NotFound from '~/src/components/views/NotFound/index.js'
 
 const selectProduct = (id) => {
