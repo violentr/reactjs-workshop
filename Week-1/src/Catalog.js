@@ -2,7 +2,7 @@ import React from 'react'
 import ProductCard from './ProductCard/Product.js'
 
 const Catalog = (props) => {
-  let { products } = props
+  let { products} = props
   let options = { width: 200, height: 150, alt: ''}
 
   return (
@@ -10,7 +10,7 @@ const Catalog = (props) => {
       {
        products.map((product) => (
           <ProductCard key={product.id}
-            {...product} {...options} {...props}
+            product={product} style={options}
           />
         ))
       }

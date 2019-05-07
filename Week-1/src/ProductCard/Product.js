@@ -4,19 +4,19 @@ import TextBox from '~/src/ProductCard/Textbox.js'
 import Price from '~/src/ProductCard/Price.js'
 import Basket from '~/src/ProductCard/Basket.js'
 
-const ProductCard = (props) =>{
-  let { height, width} = props
+const ProductCard = ({ product, history, style }) =>{
+  let { height, width} = style
   return(
     <div>
       <Image
-        title={props.title}
-        alt={props.alt}
-        imageUrl={props.imageUrl}
-        style={{ height: height, width: width }}
+        title={product.title}
+        alt={product.alt}
+        imageUrl={product.imageUrl}
+        style={style}
       />
-      <TextBox title={props.title} id={props.id} />
-      <Price price={ props.price } />
-      <Basket {...props}/>
+      <TextBox title={product.title} id={product.id} />
+      <Price price={ product.price } />
+      <Basket />
     </div>
   )
 }

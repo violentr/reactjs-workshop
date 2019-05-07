@@ -7,7 +7,7 @@ const selectProduct = (id) => {
   let options = { width: 200, height: 150, alt: ''}
   let item = products.filter((item) => item.id == id )[0]
 
-  return item ? <ProductCard {...item} {...options}/> : <NotFound />
+  return item ? <ProductCard product={item} style={options}/> : <NotFound />
 }
 const Product = ({ id }) => (
   <Fragment>
