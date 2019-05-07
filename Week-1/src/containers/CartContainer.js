@@ -6,19 +6,16 @@ class CartContainer extends Component {
   constructor(props){
     super(props)
     this.state = { products: [] }
-    this.addProduct = this.addProduct.bind(this)
-    this.totalItems = this.totalItems.bind(this)
-    this.showBasket = this.showBasket.bind(this)
   }
 
-  addProduct(product){
+  addProduct = (product) => {
     this.setState({products: [...this.state.products, product]})
   }
 
-  showBasket(){
+  showBasket = () =>{
     this.props.history.push(`${checkoutPath()}`)
   }
-  totalItems(){
+  totalItems = () => {
     return this.state.products.length
   }
 
