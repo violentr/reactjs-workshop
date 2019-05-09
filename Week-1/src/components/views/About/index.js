@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 
-const About = () => (
+const AboutPage = () => (
   <Fragment>
     <h3> This is About page </h3>
   </Fragment>
 )
 
-export default About
+export default AboutPage
