@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 import { BasketConsumer } from '~/src/context/BasketContext.js'
 
-const Basket = (props) => (
+const Basket = ({product}) => (
   <Fragment >
     <BasketConsumer >
       {context =>
           <Fragment >
-            <button onClick={() => context(props)}> Add To Basket  </button>
+            <button onClick={() => context(product)}> Add To Basket  </button>
           </Fragment>
       }
     </BasketConsumer>

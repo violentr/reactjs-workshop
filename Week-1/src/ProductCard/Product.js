@@ -16,7 +16,7 @@ const ProductCard = ({ product, history, style }) =>{
       />
       <TextBox title={product.title} id={product.id} />
       <Price price={ product.price } />
-      <Basket />
+      <Basket product={product} />
     </div>
   )
 }
