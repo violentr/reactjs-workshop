@@ -1,5 +1,6 @@
-import React from 'react'
-import ProductCard from './ProductCard/Product.js'
+import React, { Fragment } from 'react'
+import Product from '~/src/ProductCard/Product.js'
+import Basket from '~/src/ProductCard/Basket.js'
 
 const Catalog = (props) => {
   let { products} = props
@@ -8,10 +9,13 @@ const Catalog = (props) => {
   return (
     <div>
       {
-       products.map((product) => (
-          <ProductCard key={product.id}
-            product={product} style={options}
-          />
+       products.map((product, i) => (
+         <Fragment key={ i }>
+           <Product key={product.id}
+             product={product} style={options}
+           />
+           <Basket key={ i } product={product} />
+         </Fragment>
         ))
       }
     </div>
