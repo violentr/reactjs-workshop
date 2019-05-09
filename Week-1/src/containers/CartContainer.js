@@ -13,7 +13,7 @@ class CartContainer extends Component {
   }
 
   showBasket = () =>{
-    this.props.history.push(`${checkoutPath()}`)
+    this.props.history.push(checkoutPath())
   }
   totalItems = () => {
     return this.state.products.length
