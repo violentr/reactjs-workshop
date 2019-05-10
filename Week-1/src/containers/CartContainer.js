@@ -15,7 +15,6 @@ class CartContainer extends Component {
 
   addProduct = (product) => {
     this.setState({basket: [...this.state.basket, product]})
-    console.log("basket", this.state.basket)
   }
 
   showBasket = () =>{
