@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 import Product from '~/src/ProductCard/Product.js'
 import NotFoundPage from '~/src/components/views/NotFound/index.js'
 
+import { BasketConsumer } from '~/src/context/BasketContext.js'
+
 const totalCost = (products) =>{
   let total = 0
   products.map((product) => total += product.price)
