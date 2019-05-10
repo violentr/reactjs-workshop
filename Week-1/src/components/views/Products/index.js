@@ -5,10 +5,11 @@ import { BasketConsumer } from '~/src/context/BasketContext.js'
 
 const ProductsPage = () => (
     <BasketConsumer >
-      {context =>
-          <Fragment >
+      {context =>(
+          <Fragment>
             <Catalog products={ context.products } />
           </Fragment>
+            )
       }
     </BasketConsumer>
 )

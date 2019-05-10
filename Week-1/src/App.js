@@ -10,24 +10,24 @@ const routeWithSubroutes = (route, key) =>(
 )
 const App = () => (
   <Fragment>
-    <CartContainer >
       <Router>
-        <ul>
-          <li>
-            <NavLink to={ mainPath() }>Home</NavLink>
-          </li>
-          <li>
-            <NavLink to={ productsPath() }>Products</NavLink>
-          </li>
-          <li>
-            <NavLink to={ aboutPath() }>About</NavLink>
-          </li>
-        </ul>
-        <Switch>
-          { routes.map((route, key) => routeWithSubroutes(route, key))}
-        </Switch>
+        <CartContainer >
+          <ul>
+            <li>
+              <NavLink to={ mainPath() }>Home</NavLink>
+            </li>
+            <li>
+              <NavLink to={ productsPath() }>Products</NavLink>
+            </li>
+            <li>
+              <NavLink to={ aboutPath() }>About</NavLink>
+            </li>
+          </ul>
+          <Switch>
+            { routes.map((route, key) => routeWithSubroutes(route, key))}
+          </Switch>
+        </CartContainer>
       </Router>
-    </CartContainer>
   </Fragment>
 )
 

@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { BasketProvider} from '~/src/context/BasketContext.js'
 import { checkoutPath } from '~/src/routes/helpers.js'
 import { products } from '~/src/constants/Products.js'
+import { withRouter } from 'react-router-dom'
 
 class CartContainer extends Component {
   constructor(props){
@@ -18,9 +19,9 @@ class CartContainer extends Component {
   }
 
   showBasket = () =>{
-    console.log("props", this.props)
-    this.props.history.push({pathname: checkoutPath(), state: this.state})
+    this.props.history.push(checkoutPath())
   }
+
   totalItems = () => {
     return this.state.basket.length
   }
@@ -29,12 +30,13 @@ class CartContainer extends Component {
     let options = {
       products: this.state.products,
       addProduct: this.addProduct,
-      basket: this.state.basket
+      basket: this.state.basket,
+      showBasket : this.showBasket
     }
     return(
       <Fragment>
-        <button onClick={this.showBasket} disabled={ !this.totalItems() > 0} > Basket { this.totalItems() } </button>
         <BasketProvider value={options}>
+        <button onClick={this.showBasket} disabled={ !this.totalItems() > 0} > Basket { this.totalItems() } </button>
           { this.props.children }
         </BasketProvider>
       </Fragment>
@@ -42,4 +44,4 @@ class CartContainer extends Component {
   }
 }
 
-export default CartContainer
+export default withRouter(CartContainer)

@@ -17,14 +17,20 @@ const listProducts = (products) => {
 
 }
 const CheckoutPage = ({ history, location, match }) => {
-  let products = location.state ? location.state.products : <NotFoundPage />
+  let products = location.state ? location.state.basket : <NotFoundPage />
 
   return(
   <Fragment>
-    <h3> This is Checkout page </h3>
-    {location.state ? listProducts(products) : <NotFoundPage />}
-
-    { location.state ? (<p> Total $ {totalCost(products)} </p>) : '' }
+    <BasketConsumer >
+      {context =>(
+          <Fragment>
+            <h3> This is Checkout page </h3>
+            {context.basket? listProducts(context.basket) : <NotFoundPage />}
+            {context.basket ? (<p> Total $ {totalCost(context.basket)} </p>) : '' }
+          </Fragment>
+            )
+      }
+    </BasketConsumer>
   </Fragment>
   )
 }
