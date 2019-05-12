@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import Product from '~/src/ProductCard/Product.js'
-import Basket from '~/src/ProductCard/Basket.js'
+import AddToBasket from '~/src/ProductCard/AddToBasket.js'
 
 const Catalog = (props) => {
   let { products} = props
@@ -14,7 +14,7 @@ const Catalog = (props) => {
            <Product key={product.id}
              product={product} style={options}
            />
-           <Basket key={ i } product={product} />
+           <AddToBasket key={ i } product={product} />
          </Fragment>
         ))
       }
