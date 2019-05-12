@@ -23,12 +23,19 @@ class CartContainer extends Component {
     return this.state.basket.length
   }
 
+  totalCost = (products) => {
+    let total = 0
+    products.map((product) => total += product.price)
+    return total
+  }
+
   render(){
     let options = {
       addProduct: this.addProduct,
       basket: this.state.basket,
       showBasket: this.showBasket,
-      totalItems: this.totalItems
+      totalItems: this.totalItems,
+      totalCost: this.totalCost
     }
     return(
       <Fragment>
