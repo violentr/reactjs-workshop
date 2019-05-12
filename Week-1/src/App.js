@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom'
 import { mainPath, aboutPath, productsPath } from '~/src/routes/helpers.js'
 import CartContainer from '~/src/containers/CartContainer.js'
+import Basket from '~/src/ProductCard/Basket.js'
+
 // Views
 import routes from '~/src/routes/index.js'
 
@@ -12,6 +14,7 @@ const App = () => (
   <Fragment>
       <Router>
         <CartContainer >
+          <Basket />
           <ul>
             <li>
               <NavLink to={ mainPath() }>Home</NavLink>

@@ -27,12 +27,12 @@ class CartContainer extends Component {
     let options = {
       addProduct: this.addProduct,
       basket: this.state.basket,
-      showBasket : this.showBasket
+      showBasket: this.showBasket,
+      totalItems: this.totalItems
     }
     return(
       <Fragment>
         <BasketProvider value={options}>
-        <button onClick={this.showBasket} disabled={ !this.totalItems() > 0} > Basket { this.totalItems() } </button>
           { this.props.children }
         </BasketProvider>
       </Fragment>
