@@ -1,14 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import { BasketProvider} from '~/src/context/BasketContext.js'
 import { checkoutPath } from '~/src/routes/helpers.js'
-import { products } from '~/src/constants/Products.js'
 import { withRouter } from 'react-router-dom'
 
 class CartContainer extends Component {
   constructor(props){
     super(props)
     this.state = {
-      products: products,
       basket: []
     }
   }
@@ -27,7 +25,6 @@ class CartContainer extends Component {
 
   render(){
     let options = {
-      products: this.state.products,
       addProduct: this.addProduct,
       basket: this.state.basket,
       showBasket : this.showBasket
