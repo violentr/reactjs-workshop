@@ -3,8 +3,8 @@ import { BasketConsumer } from '~/src/context/BasketContext.js'
 
 const Basket = () => (
   <BasketConsumer>
-    { (context) => (
-      <button onClick={context.showBasket} disabled={ !context.totalItems() > 0} > Basket { context.totalItems() } </button>
+    { (cartContext) => (
+      <button onClick={cartContext.showBasket} disabled={ !cartContext.totalItems() > 0} > Basket { cartContext.totalItems() } </button>
     )}
   </BasketConsumer>
 )

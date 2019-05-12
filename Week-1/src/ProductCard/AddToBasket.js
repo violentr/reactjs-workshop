@@ -3,9 +3,9 @@ import { BasketConsumer } from '~/src/context/BasketContext.js'
 
 const addToBasket = ({product}) => (
   <BasketConsumer >
-    {context =>
+    {cartContext =>
         <Fragment >
-          <button onClick={() => context.addProduct(product)}> Add To Basket  </button>
+          <button onClick={() => cartContext.addProduct(product)}> Add To Basket  </button>
         </Fragment>
     }
   </BasketConsumer>
