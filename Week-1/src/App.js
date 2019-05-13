@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
-import CartContainer from '~/containers/CartContainer.js'
-import Catalog from '~/src/Catalog.js'
-import { products } from '~/constants/Products.js'
+import Layout from '~/src/Layout.js'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const App = () => (
   <Fragment>
-    <CartContainer>
-      <Catalog products={ products } />
-    </CartContainer>
+      <Router>
+        <Layout />
+      </Router>
   </Fragment>
-);
+)
+
 export default App;
