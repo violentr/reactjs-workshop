@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Catalog from '~/src/Catalog.js'
+import Catalog from '~/src/components/Catalog.js'
 import { products } from '~/src/constants/Products.js'
 
 const ProductsPage = () => (
