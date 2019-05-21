@@ -11,22 +11,22 @@ const routeWithSubroutes = (route, key) =>(
   <Route {...route} key={key}/>
 )
 const Layout = () =>(
-<CartContainer >
-  <Basket />
-  <ul>
-    <li>
-      <NavLink to={ mainPath() }>Home</NavLink>
-    </li>
-    <li>
-      <NavLink to={ productsPath() }>Products</NavLink>
-    </li>
-    <li>
-      <NavLink to={ aboutPath() }>About</NavLink>
-    </li>
-  </ul>
-  <Switch>
-    { routes.map((route, key) => routeWithSubroutes(route, key))}
-  </Switch>
+  <CartContainer >
+    <Basket />
+    <ul>
+      <li>
+        <NavLink to={ mainPath() }>Home</NavLink>
+      </li>
+      <li>
+        <NavLink to={ productsPath() }>Products</NavLink>
+      </li>
+      <li>
+        <NavLink to={ aboutPath() }>About</NavLink>
+      </li>
+    </ul>
+    <Switch>
+      { routes.map((route, key) => routeWithSubroutes(route, key))}
+    </Switch>
   </CartContainer>
 )
 
