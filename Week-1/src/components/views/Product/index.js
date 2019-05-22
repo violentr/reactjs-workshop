@@ -5,22 +5,26 @@ import {ProductConsumer} from '~/src/context/ProductContext.js'
 
 const renderProduct = (product) => {
   let options = { width: 200, height: 150, alt: ''}
-  return product ? <Product product={product} style={options}/> : <NotFoundPage /> 
+  return product ? <Product product={product} style={options}/> : <NotFoundPage />
 }
 
-const selectProduct = (id) => {  
+const selectProduct = (id) => {
   return (
   <ProductConsumer>
-    {(productContext) =>
-      <Fragment>
-        { renderProduct(productContext.find_by_id(productContext.products, id)) }
-      </Fragment>
+    { (productContext) => {
+      let products = productContext.products
+      let product = productContext.find_by_id(products, id)
+      return(
+        <Fragment>
+          { renderProduct(product) }
+        </Fragment>
+      )}
     }
   </ProductConsumer>
  )
 }
 
-const ProductPage = ({ id }) => (
+const ProductPage = ({id}) => (
   <Fragment>
       { selectProduct(id) }
   </Fragment>
