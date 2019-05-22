@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react'
+import React, { Fragment } from 'react'
 import Product from '~/src/ProductCard/Product.js'
 import AddToBasket from '~/src/ProductCard/AddToBasket.js'
 import { image_attributes } from '~/src/shared/helper.js'
