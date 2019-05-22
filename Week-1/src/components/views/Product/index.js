@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import Product from '~/src/ProductCard/Product.js'
 import NotFoundPage from '~/src/components/views/NotFound/index.js'
-import {ProductConsumer} from '~/src/context/ProductContext.js'
+import { ProductConsumer } from '~/src/context/ProductContext.js'
+import { image_attributes } from '~/src/shared/helper.js'
 
 const renderProduct = (product) => {
-  let options = { width: 200, height: 150, alt: ''}
-  return product ? <Product product={product} style={options}/> : <NotFoundPage />
+  return product ? <Product product={product} style={image_attributes}/> : <NotFoundPage />
 }
 
 const selectProduct = (id) => {
