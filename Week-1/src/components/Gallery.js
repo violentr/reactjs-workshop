@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { image_attributes } from '~/src/shared/helper.js'
+import  '~/src/css/styles.css'
 
 class Gallery extends Component{
   constructor(props){
@@ -7,10 +7,9 @@ class Gallery extends Component{
   }
 
   renderImage(imageUrl, opt){
-    let options = {height: 80, width: 80, border: "1px solid black", margin: 5}
     return(
       <span>
-        <img src={imageUrl} style={options}/>
+        <img className="thumb" src={imageUrl} />
       </span>
     )
   }
