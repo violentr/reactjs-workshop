@@ -4,6 +4,9 @@ import NotFoundPage from '~/src/components/views/NotFound/index.js'
 import { ProductConsumer } from '~/src/context/ProductContext.js'
 import { image_attributes } from '~/src/shared/helper.js'
 import  Gallery from '~/src/components/Gallery.js'
+import ImagePortal from '~/src/components/ImagePortal.js'
+
+const productImage = document.getElementById('productImage')
 
 const renderProduct = (product) => {
   let item = Object.keys(product).length > 0
@@ -21,6 +24,7 @@ const selectProduct = (id) => {
           <Fragment>
             { renderProduct(product) }
             <Gallery images={product && product.extra_images} />
+            <ImagePortal style="big-image" url={product.imageUrl} container={productImage} />
           </Fragment>
         )}
       }
