@@ -1,15 +1,31 @@
-import React, { Component, Fragment } from 'react'
+import React,{ Component, Fragment } from 'react'
 import  '~/src/css/styles.css'
+const productImage = document.getElementById('productImage')
 
 class Gallery extends Component{
+
   constructor(props){
     super(props)
+    this.el = document.createElement('img');
   }
 
-  renderImage(imageUrl, opt){
+  componentWillUnmount(){
+    productImage.removeChild(this.el)
+  }
+
+  handleClick(e) {
+    let url = e.target.src
+    if (url) {
+      this.el.src = url
+      this.el.className = "big-image"
+      productImage.appendChild(this.el)
+    }
+  }
+
+  renderImage(imageUrl){
     return(
       <span>
-        <img className="thumb" src={imageUrl} />
+        <img onClick={(e)=>this.handleClick(e)} className="thumb" src={imageUrl} />
       </span>
     )
   }
