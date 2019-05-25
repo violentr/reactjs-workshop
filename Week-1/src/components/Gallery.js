@@ -1,6 +1,6 @@
 import React,{ Component, Fragment } from 'react'
 import  '~/src/css/styles.css'
-const productImage = document.getElementById('productImage')
+const productImage = document.getElementById('product-image')
 
 class Gallery extends Component{
 

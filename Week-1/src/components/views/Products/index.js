@@ -1,6 +1,5 @@
 import React, { Fragment, Component } from 'react'
 import Catalog from '~/src/components/Catalog.js'
-import request from 'superagent'
 import {ProductConsumer} from '~/src/context/ProductContext.js'
 
 
