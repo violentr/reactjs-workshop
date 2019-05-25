@@ -9,6 +9,10 @@ class Gallery extends Component{
     this.el = document.createElement('img');
   }
 
+  componentDidMount(){
+    productImage.appendChild(this.el)
+  }
+
   componentWillUnmount(){
     productImage.removeChild(this.el)
   }
