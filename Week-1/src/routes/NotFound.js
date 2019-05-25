@@ -1,7 +1,7 @@
 import NotFoundPage from '~/src/components/views/NotFound/index.js'
 
 export default {
-  path: "*",
+  path: '*',
   exact: true,
   component: NotFoundPage
 }

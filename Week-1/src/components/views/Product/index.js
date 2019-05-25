@@ -24,7 +24,7 @@ const selectProduct = (id) => {
           <Fragment>
             { renderProduct(product) }
             <Gallery images={product && product.extra_images} />
-            <ImagePortal style="big-image" url={product.imageUrl} container={productImage} />
+            <ImagePortal style='big-image' url={product.imageUrl} container={productImage} />
           </Fragment>
         )}
       }

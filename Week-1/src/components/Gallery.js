@@ -17,7 +17,7 @@ class Gallery extends Component{
     let url = e.target.src
     if (url) {
       this.el.src = url
-      this.el.className = "big-image"
+      this.el.className = 'big-image'
       productImage.appendChild(this.el)
     }
   }
@@ -25,7 +25,7 @@ class Gallery extends Component{
   renderImage(imageUrl){
     return(
       <span>
-        <img onClick={(e)=>this.handleClick(e)} className="thumb" src={imageUrl} />
+        <img onClick={(e)=>this.handleClick(e)} className='thumb' src={imageUrl} />
       </span>
     )
   }
