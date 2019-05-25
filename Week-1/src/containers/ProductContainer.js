@@ -24,13 +24,13 @@ class ProductContainer extends Component {
     })
   }
 
-  find_by_id(products, id){
+  findById(products, id){
     return products.filter((item) => item.id == id )[0]
   }
 
   render(){
     let options ={
-      find_by_id: this.find_by_id,
+      findById: this.findById,
       products: this.state.products
     }
     return(

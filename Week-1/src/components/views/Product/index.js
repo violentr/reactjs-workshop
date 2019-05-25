@@ -19,7 +19,7 @@ const selectProduct = (id) => {
     <ProductConsumer>
       { (productContext) => {
         let products = productContext.products
-        let product = productContext.find_by_id(products, id) || {}
+        let product = productContext.findById(products, id) || {}
         return(
           <Fragment>
             { renderProduct(product) }
