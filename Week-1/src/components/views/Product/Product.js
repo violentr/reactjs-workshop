@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react'
 import Gallery from '~/src/components/Gallery.js'
-import Portal from '~/src/components/Portal.js'
+import Portal from '~/src/shared/components/Portal.js'
 import { imageAttributes } from '~/src/shared/helper.js'
 import Product from '~/src/components/ProductCard/Product.js'
 import NotFoundPage from '~/src/components/views/NotFound/index.js'
+import PropTypes from 'prop-types'
 
 const productImage = document.getElementById('product-image')
 
@@ -24,4 +25,13 @@ const ProductWrapper = ({product}) => {
   )
 }
 
+ProductWrapper.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    price: PropTypes.number,
+    imageUrl: PropTypes.string,
+    extra_images: PropTypes.array
+  })
+ }
 export default ProductWrapper
