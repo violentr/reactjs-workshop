@@ -18,7 +18,7 @@ const ProductWrapper = ({product}) => {
     <Fragment>
       { renderProduct(product) }
        <Portal container={productImage}>
-         <Gallery images={product && product.extra_images} />
+         <Gallery images={product && product.extraImages} />
          <img className="big-image" src={product.imageUrl}/>
        </Portal>
     </Fragment>
@@ -31,7 +31,7 @@ ProductWrapper.propTypes = {
     title: PropTypes.string,
     price: PropTypes.number,
     imageUrl: PropTypes.string,
-    extra_images: PropTypes.array
+    extraImages: PropTypes.array
   })
  }
 export default ProductWrapper

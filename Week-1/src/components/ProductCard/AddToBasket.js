@@ -16,7 +16,7 @@ addToBasket.propTypes = {
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     imageUrl: PropTypes.string.isRequired,
-    extra_images: PropTypes.array.isRequired
+    extraImages: PropTypes.array.isRequired
   })
 }
 export default addToBasket
