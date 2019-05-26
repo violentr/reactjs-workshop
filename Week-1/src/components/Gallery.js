@@ -1,5 +1,7 @@
 import React,{ Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
 import  '~/src/css/styles.css'
+
 const productImage = document.getElementById('product-image')
 
 class Gallery extends Component{
@@ -36,7 +38,7 @@ class Gallery extends Component{
   render(){
     let {images} = this.props
     return(
-      <div>
+      <div className='thum-images'>
         {
           images && images.map((url, i) => (
             <Fragment key={i}>
@@ -48,4 +50,9 @@ class Gallery extends Component{
     )
   }
 }
+
+Gallery.propTypes = {
+  images: PropTypes.array
+}
+
 export default Gallery
