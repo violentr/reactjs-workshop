@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from './Image.js'
-import TextBox from '~/src/ProductCard/Textbox.js'
-import Price from '~/src/ProductCard/Price.js'
+import TextBox from '~/src/components/ProductCard/Textbox.js'
+import Price from '~/src/components/ProductCard/Price.js'
 
 const Product = ({ product, history, style }) =>{
   let { height, width} = style
