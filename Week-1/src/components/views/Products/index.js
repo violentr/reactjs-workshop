@@ -1,7 +1,6 @@
 import React, { Fragment, Component } from 'react'
-import Catalog from '~/src/components/Catalog.js'
+import Catalog from '~/src/components/views/Products/Catalog.js'
 import {ProductConsumer} from '~/src/context/ProductContext.js'
-
 
 class ProductsPage extends Component {
   render(){
