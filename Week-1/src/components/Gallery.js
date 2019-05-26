@@ -29,11 +29,12 @@ class Gallery extends Component{
   }
 
   renderImage(imageUrl){
-    return(
+    let image = imageUrl && (
       <span>
         <img onClick={(e)=>this.handleClick(e)} className='thumb' src={imageUrl} />
       </span>
     )
+    return image
   }
   render(){
     let {images} = this.props
