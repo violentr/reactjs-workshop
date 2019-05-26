@@ -1,8 +1,8 @@
-import React, { Fragment, Component } from 'react'
-import Catalog from '~/src/components/Catalog.js'
+import React, { Component } from 'react'
 import request from 'superagent'
 const APIURL = 'https://my-json-server.typicode.com/violentr/fake_api/products'
 import {ProductProvider} from '~/src/context/ProductContext.js'
+import PropTypes from 'prop-types'
 
 const fetchData = () => {
   return(
@@ -41,4 +41,7 @@ class ProductContainer extends Component {
   }
 }
 
+ProductContainer.propTypes = {
+  children: PropTypes.element.isRequired
+}
 export default ProductContainer
