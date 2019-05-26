@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 import { productPath } from '~/src/routes/helpers.js'
 import PropTypes from 'prop-types'
 
-const TextBox = ({id, title}) =>(
+const ProductTextBox = ({id, title}) =>(
   <Link to={productPath(id)}>
     {title}
   </Link>
 )
-TextBox.propTypes = {
+ProductTextBox.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
 }
-export default TextBox
+export default ProductTextBox

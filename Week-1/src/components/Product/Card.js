@@ -1,24 +1,24 @@
 import React from 'react'
-import Image from './Image.js'
-import TextBox from '~/src/components/ProductCard/Textbox.js'
-import Price from '~/src/components/ProductCard/Price.js'
+import ProductImage from './Image.js'
+import ProductTextBox from '~/src/components/Product/Textbox.js'
+import ProductPrice from '~/src/components/Product/Price.js'
 import PropTypes from 'prop-types'
 
-const Product = ({product, style}) =>{
+const Card = ({product, style}) =>{
   return(
     <div>
-      <Image
+      <ProductImage
         title={product.title}
         alt={product.alt}
         imageUrl={product.imageUrl}
         style={style}
       />
-      <TextBox title={product.title} id={product.id} />
-      <Price price={product.price} />
+      <ProductTextBox title={product.title} id={product.id} />
+      <ProductPrice price={product.price} />
     </div>
   )
 }
-Product.propTypes = {
+Card.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
@@ -32,4 +32,4 @@ Product.propTypes = {
   })
 }
 
-export default Product
+export default Card

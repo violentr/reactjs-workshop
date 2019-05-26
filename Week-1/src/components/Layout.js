@@ -2,7 +2,7 @@ import React  from 'react'
 import { Route, Switch, NavLink } from 'react-router-dom'
 import { mainPath, aboutPath, productsPath } from '~/src/routes/helpers.js'
 import CartContainer from '~/src/containers/CartContainer.js'
-import Basket from '~/src/components/ProductCard/Basket.js'
+import ProductBasket from '~/src/components/Product/Basket.js'
 
 // Views
 import routes from '~/src/routes/index.js'
@@ -12,7 +12,7 @@ const routeWithSubroutes = (route, key) =>(
 )
 const Layout = () =>(
   <CartContainer >
-    <Basket />
+    <ProductBasket />
     <ul>
       <li>
         <NavLink to={ mainPath() }>Home</NavLink>

@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
-import Product from '~/src/components/ProductCard/Product.js'
+import ProductCard from '~/src/components/Product/Card.js'
 import { imageAttributes } from '~/src/shared/helper.js'
 import { BasketConsumer } from '~/src/context/BasketContext.js'
 
 const listProducts = (context) => {
   let { basket, totalCost} = context
   let products = basket.map((product, i) => (
-    <Product key={i} product={product} style={imageAttributes}/>)
+    <ProductCard key={i} product={product} style={imageAttributes}/>)
   )
   return(
     <Fragment>

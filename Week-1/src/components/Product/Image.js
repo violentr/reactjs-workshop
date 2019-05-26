@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Image = ({title, imageUrl, alt, style}) => {
+const ProductImage = ({title, imageUrl, alt, style}) => {
   return(
     <div>
       <img style={style} src={imageUrl}
@@ -10,7 +10,7 @@ const Image = ({title, imageUrl, alt, style}) => {
     </div>
   )
 }
-Image.propTypes = {
+ProductImage.propTypes = {
     title: PropTypes.string.isRequired,
     alt: PropTypes.string,
     imageUrl: PropTypes.string.isRequired,
@@ -19,4 +19,4 @@ Image.propTypes = {
     width:  PropTypes.number.isRequired
   }).isRequired
 }
-export default Image
+export default ProductImage
