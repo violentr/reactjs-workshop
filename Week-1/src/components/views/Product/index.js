@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { ProductConsumer } from '~/src/context/ProductContext.js'
 import ProductWrapper from '~/src/components/views/Product/Product.js'
-
+import PropTypes from 'prop-types'
 
 const ProductPage = ({id}) => (
   <Fragment>
@@ -18,5 +18,9 @@ const ProductPage = ({id}) => (
     </ProductConsumer>
   </Fragment>
 )
+
+ProductPage.propTypes = {
+  id: PropTypes.string.isRequired
+}
 
 export default ProductPage
