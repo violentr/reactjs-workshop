@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { BasketConsumer } from '~/src/context/BasketContext.js'
-
+import PropTypes from 'prop-types'
 const addToBasket = ({product}) => (
   <BasketConsumer >
     {cartContext =>
@@ -10,4 +10,13 @@ const addToBasket = ({product}) => (
     }
   </BasketConsumer>
 )
+addToBasket.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    extra_images: PropTypes.array.isRequired
+  })
+}
 export default addToBasket
