@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import Gallery from '~/src/components/Gallery.js'
-import Portal from '~/src/shared/components/Portal.js'
+import Portal from '~/src/components/shared/Portal.js'
 import { imageAttributes } from '~/src/shared/helper.js'
 import ProductCard from '~/src/components/Product/Card.js'
 import NotFoundPage from '~/src/components/views/NotFound/index.js'
