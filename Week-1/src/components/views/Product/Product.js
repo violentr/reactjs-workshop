@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import Gallery from '~/src/components/Gallery.js'
 import ImagePortal from '~/src/components/ImagePortal.js'
 import { imageAttributes } from '~/src/shared/helper.js'
-import Product from '~/src/ProductCard/Product.js'
+import Product from '~/src/components/ProductCard/Product.js'
 import NotFoundPage from '~/src/components/views/NotFound/index.js'
 
 const productImage = document.getElementById('product-image')

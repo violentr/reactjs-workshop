@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
-import Product from '~/src/ProductCard/Product.js'
-import AddToBasket from '~/src/ProductCard/AddToBasket.js'
+import Product from '~/src/components/ProductCard/Product.js'
+import AddToBasket from '~/src/components/ProductCard/AddToBasket.js'
 import { imageAttributes } from '~/src/shared/helper.js'
 
-const Catalog = (props) => {
+const Catalog = ({products}) => {
   return (
     <div>
       {
-        props.products && props.products.map((product, i) => (
+        products && products.map((product, i) => (
           <Fragment key={i}>
             <Product key={product.id}
               product={product} style={imageAttributes}

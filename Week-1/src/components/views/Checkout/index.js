@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Product from '~/src/ProductCard/Product.js'
+import Product from '~/src/components/ProductCard/Product.js'
 import { imageAttributes } from '~/src/shared/helper.js'
 import { BasketConsumer } from '~/src/context/BasketContext.js'
 

@@ -34,7 +34,7 @@ class Gallery extends Component{
     )
   }
   render(){
-    let images = this.props.images
+    let {images} = this.props
     return(
       <div>
         {
