@@ -2,13 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-const Portal =(props, {container}) => {
+const Portal =(props) => {
+  let {children, container} = props
   return(
-    ReactDOM.createPortal(props.children, container)
+    ReactDOM.createPortal(children, container)
   )
 }
 
 Portal.propTypes = {
+  children: PropTypes.array.isRequired,
   container: PropTypes.instanceOf(Node).isRequired
 }
 
