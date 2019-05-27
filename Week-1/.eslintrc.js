@@ -12,7 +12,8 @@ module.exports = {
     },
     "parserOptions": {
         "ecmaFeatures": {
-            "jsx": true
+          "jsx": true,
+          "sourceType": "module"
         },
         "ecmaVersion": 2018,
         "sourceType": "module"
@@ -42,6 +43,9 @@ module.exports = {
     "no-tabs": 2,
     //React
     "react/prefer-es6-class": 1,
-    "react/prefer-stateless-function": 1
+    "react/prefer-stateless-function": 1,
+    "react/jsx-uses-vars": 1,
+    "react/react-in-jsx-scope": 1,
+    "react/jsx-uses-react": 1
   }
 };
