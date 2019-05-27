@@ -3,8 +3,9 @@ module.exports = {
         "browser": true,
         "es6": true
     },
-  "extends": ["eslint:recommended",
-  "plugin:react/recommended"],
+    "extends": [
+      "eslint:recommended"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -19,6 +20,28 @@ module.exports = {
     "plugins": [
         "react"
     ],
-    "rules": {
-    }
+  "rules": {
+    "indent": [
+      2,
+      2,
+      { "SwitchCase": 1 }
+    ],
+    "linebreak-style": [
+      2,
+      "unix"
+    ],
+    "quotes": [
+      2,
+      "single"
+    ],
+    "camelcase": 1,
+    "keyword-spacing": 1,
+    "arrow-body-style": 1,
+    "arrow-spacing": 1,
+    "no-var": 1,
+    "no-tabs": 2,
+    //React
+    "react/prefer-es6-class": 1,
+    "react/prefer-stateless-function": 1
+  }
 };
