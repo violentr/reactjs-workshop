@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { BasketProvider} from '~/src/context/BasketContext.js'
 import { checkoutPath } from '~/src/routes/helpers.js'
 import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class CartContainer extends Component {
   constructor(props){
@@ -45,6 +46,10 @@ class CartContainer extends Component {
       </Fragment>
     )
   }
+}
+
+CartContainer.propTypes = {
+  children: PropTypes.array.isRequired
 }
 
 export default withRouter(CartContainer)

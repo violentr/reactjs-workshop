@@ -1,18 +1,26 @@
 import React, { Fragment } from 'react'
-import Product from '~/src/ProductCard/Product.js'
-import { products } from '~/src/constants/Products.js'
-import NotFoundPage from '~/src/components/views/NotFound/index.js'
+import { ProductConsumer } from '~/src/context/ProductContext.js'
+import ProductWrapper from '~/src/components/views/Product/Product.js'
+import PropTypes from 'prop-types'
 
-const selectProduct = (id) => {
-  let options = { width: 200, height: 150, alt: ''}
-  let item = products.filter((item) => item.id == id )[0]
-
-  return item ? <Product product={item} style={options}/> : <NotFoundPage />
-}
-const ProductPage = ({ id }) => (
+const ProductPage = ({id}) => (
   <Fragment>
-    { selectProduct(id) }
+    <ProductConsumer>
+      { (productContext) => {
+        let products = productContext.products
+        let product = productContext.findById(products, id) || {}
+        return(
+          <Fragment>
+            <ProductWrapper product={product} />
+          </Fragment>
+        )}
+      }
+    </ProductConsumer>
   </Fragment>
 )
+
+ProductPage.propTypes = {
+  id: PropTypes.string.isRequired
+}
 
 export default ProductPage

@@ -1,11 +1,19 @@
-import React, { Fragment } from 'react'
-import Catalog from '~/src/Catalog.js'
-import { products } from '~/src/constants/Products.js'
+import React, { Fragment, Component } from 'react'
+import Catalog from '~/src/components/views/Products/Catalog.js'
+import {ProductConsumer} from '~/src/context/ProductContext.js'
 
-const ProductsPage = () => (
-  <Fragment>
-    <Catalog products={ products } />
-  </Fragment>
-)
+class ProductsPage extends Component {
+  render(){
+    return(
+      <ProductConsumer>
+      {productContext =>
+        <Fragment>
+          <Catalog products={ productContext.products } />
+        </Fragment>
+      }
+      </ProductConsumer>
+    )
+  }
+}
 
 export default ProductsPage

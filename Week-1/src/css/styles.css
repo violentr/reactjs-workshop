@@ -1,0 +1,14 @@
+.thumb {
+  height: 80px;
+  width: 80px;
+  border: 1px solid black;
+  margin: 5px;
+  cursor: pointer
+}
+
+.big-image {
+  height: 170px;
+  width: 170px;
+  border: 1px solid black;
+  margin: 5px;
+}
