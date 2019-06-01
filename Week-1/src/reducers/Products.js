@@ -13,7 +13,7 @@ const Products = (state=initialState, action) => {
     case ProductsActionTypes.FETCH_PRODUCTS_ERROR:
       return Object.assign({}, state, {error: true})
     case ProductsActionTypes.FETCH_PRODUCTS_SUCCESS:
-      return Object.assign({}, state, {products: action.response})
+      return Object.assign({}, state, {entries: action.response})
     default:
       return state
   }

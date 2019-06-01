@@ -1,27 +1,16 @@
-import React, { Component } from 'react'
-import request from 'superagent'
-const APIURL = 'https://my-json-server.typicode.com/violentr/fake_api/products'
+import React, {Component} from 'react'
 import {ProductProvider} from '~/src/context/ProductContext.js'
 import PropTypes from 'prop-types'
-
-const fetchData = () => {
-  return(
-    request.get(APIURL)
-      .then(results => results.body)
-      .catch(console.error)
-  )
-}
+import {connect} from 'react-redux'
+import {fetchProducts} from '~/src/actions/Products.js'
 
 class ProductContainer extends Component {
   constructor(props){
     super(props)
-    this.state = {products: []}
   }
 
   componentDidMount(){
-    fetchData().then(products => {
-      this.setState({products: products})
-    })
+    this.props.fetchProducts()
   }
 
   findById(products, id){
@@ -29,13 +18,13 @@ class ProductContainer extends Component {
   }
 
   render(){
-    let options ={
+    let options = {
       findById: this.findById,
-      products: this.state.products
+      products: this.props.products
     }
-    return(
+    return (
       <ProductProvider value={options}>
-          {this.props.children}
+        {this.props.children}
       </ProductProvider>
     )
   }
@@ -44,4 +33,13 @@ class ProductContainer extends Component {
 ProductContainer.propTypes = {
   children: PropTypes.element.isRequired
 }
-export default ProductContainer
+
+const mapStateToProps = (state) => ({
+  products: state.products.entries
+})
+
+const actionsToProps = (dispatch) => ({
+  fetchProducts: () => dispatch(fetchProducts)
+})
+
+export default connect(mapStateToProps, actionsToProps)(ProductContainer)
