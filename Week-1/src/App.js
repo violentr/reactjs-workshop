@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react'
 import Layout from '~/src/components/Layout.js'
 import {BrowserRouter as Router, matchPath} from 'react-router-dom'
-import ProductContainer from '~/src/containers/ProductContainer.js'
 import {Provider} from 'react-redux'
 import store from '~/src/store'
 import routes from '~/src/routes/index.js'
@@ -9,8 +8,7 @@ import {parse} from 'qs'
 import prepareData from '~/src/routes/prepareData.js'
 import DevTools from '~/src/containers/DevTools.js'
 import {render} from 'react-dom'
-import {createBrowserHistory} from "history";
-
+import {createBrowserHistory} from 'history';
 const history = createBrowserHistory()
 
 function historyCb(location, action='PUSH'){
@@ -35,9 +33,7 @@ const App = () => (
   <Fragment>
     <Provider store={store}>
       <Router>
-        <ProductContainer>
-          <Layout />
-        </ProductContainer>
+        <Layout />
       </Router>
     </Provider>
   </Fragment>
