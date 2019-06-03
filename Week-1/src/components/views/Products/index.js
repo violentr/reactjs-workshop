@@ -1,19 +1,22 @@
 import React, { Fragment, Component } from 'react'
 import Catalog from '~/src/components/views/Products/Catalog.js'
-import {ProductConsumer} from '~/src/context/ProductContext.js'
+import {connect} from 'react-redux'
 
 class ProductsPage extends Component {
+  constructor(props){
+    super(props)
+  }
+
   render(){
-    return(
-      <ProductConsumer>
-      {productContext =>
-        <Fragment>
-          <Catalog products={ productContext.products } />
-        </Fragment>
-      }
-      </ProductConsumer>
+    return (
+      <Fragment>
+        <Catalog products={this.props.products} />
+      </Fragment>
     )
   }
 }
+const mapStateToProps = (state) => ({
+  products: state.products.entries
+})
 
-export default ProductsPage
+export default connect(mapStateToProps)(ProductsPage)
