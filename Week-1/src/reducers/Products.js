@@ -3,7 +3,7 @@ import * as ProductsActionTypes from '~/src/actiontypes/Products.js'
 const initialState = {
   isFetching: false,
   error: false,
-  products: []
+  entries: []
 }
 
 const Products = (state=initialState, action) => {
