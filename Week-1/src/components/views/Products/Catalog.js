@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react'
+import React, {Fragment} from 'react'
 import ProductCard from '~/src/components/Product/Card.js'
 import ProductAddToBasket from '~/src/components/Product/AddToBasket.js'
-import { imageAttributes } from '~/src/shared/helper.js'
+import {imageAttributes} from '~/src/shared/helper.js'
 import PropTypes from 'prop-types'
+
 const Catalog = ({products}) => {
   return (
     <div>
@@ -12,7 +13,7 @@ const Catalog = ({products}) => {
             <ProductCard key={product.id}
               product={product} style={imageAttributes}
             />
-            <ProductAddToBasket key={i} product={product} />
+            <ProductAddToBasket key={i} item={product} />
           </Fragment>
         ))
       }
