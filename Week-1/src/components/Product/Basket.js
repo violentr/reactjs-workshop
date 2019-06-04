@@ -12,8 +12,8 @@ class ProductBasket extends Component {
     return (
       <Fragment>
         <Link to={checkoutPath()}>
-          <button disabled={ !this.props.totalItems() > 0}>
-            Basket { this.props.totalItems() }
+          <button disabled={ !this.props.totalItems > 0}>
+            Basket { this.props.totalItems }
           </button>
         </Link>
         { this.props.children }
@@ -25,9 +25,7 @@ class ProductBasket extends Component {
 const mapStateToProps = (state) => (
   {
     items: state.basket.items,
-    totalItems: () => (
-      state.basket.items.length
-    ),
+    totalItems: state.basket.items.length
   }
 )
 
