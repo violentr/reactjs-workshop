@@ -3,12 +3,13 @@ import ProductWrapper from '~/src/components/views/Product/Product.js'
 import {connect} from 'react-redux'
 
 class ProductPage extends Component {
+
   constructor(props){
     super(props)
   }
+
   render(){
-    let {items, id, findById} = this.props
-    let product = findById(items, id) || {}
+    let product = this.props.productId || {}
     return (
       <Fragment>
         <ProductWrapper product={product} />
@@ -18,13 +19,12 @@ class ProductPage extends Component {
 }
 
 
-const mapStateToProps = (state) => (
-  {
-    items: state.products.entries,
-    findById: (products, id) => (
-      products && products.filter((item) => item.id == id )[0]
-    )
+const mapStateToProps = (state, ownProps) => {
+  let {entries} = state.products
+  return {
+    items: entries,
+    productId: entries && entries.filter((item) => item.id == ownProps.id )[0]
   }
-)
+}
 
 export default connect(mapStateToProps)(ProductPage)
