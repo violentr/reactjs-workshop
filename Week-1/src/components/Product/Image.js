@@ -11,9 +11,9 @@ const ProductImage = ({title, imageUrl, alt, style}) => {
   )
 }
 ProductImage.propTypes = {
-    title: PropTypes.string.isRequired,
-    alt: PropTypes.string,
-    imageUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  alt: PropTypes.string,
+  imageUrl: PropTypes.string.isRequired,
   style: PropTypes.shape({
     height: PropTypes.number.isRequired,
     width:  PropTypes.number.isRequired

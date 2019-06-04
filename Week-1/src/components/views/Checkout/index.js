@@ -1,6 +1,5 @@
 import React, {Fragment, Component} from 'react'
 import ProductCard from '~/src/components/Product/Card.js'
-import {imageAttributes} from '~/src/shared/helper.js'
 import {connect} from 'react-redux'
 
 class CheckoutPage extends Component {
@@ -18,7 +17,7 @@ class CheckoutPage extends Component {
   render(){
     let {items} = this.props
     let products = items.map((product, i) => (
-      <ProductCard key={i} product={product} style={imageAttributes}/>)
+      <ProductCard key={i} product={product}/>)
     )
     return (
       <Fragment>
