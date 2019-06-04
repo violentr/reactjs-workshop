@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react'
 import Layout from '~/src/components/Layout.js'
-import {BrowserRouter as Router, matchPath} from 'react-router-dom'
+import {BrowserRouter as Router, matchPath, Switch, Route} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import store from '~/src/store'
 import routes from '~/src/routes/index.js'
@@ -9,6 +9,11 @@ import prepareData from '~/src/routes/prepareData.js'
 import DevTools from '~/src/containers/DevTools.js'
 import {render} from 'react-dom'
 import {createBrowserHistory} from 'history';
+
+const routeWithSubroutes = (route, key) => (
+  <Route {...route} key={key}/>
+)
+
 const history = createBrowserHistory()
 
 function historyCb(location, action='PUSH'){
@@ -33,7 +38,11 @@ const App = () => (
   <Fragment>
     <Provider store={store}>
       <Router>
-        <Layout />
+        <Layout>
+          <Switch>
+            { routes.map((route, key) => routeWithSubroutes(route, key))}
+          </Switch>
+        </Layout>
       </Router>
     </Provider>
   </Fragment>
