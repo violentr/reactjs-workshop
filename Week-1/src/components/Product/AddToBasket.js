@@ -19,7 +19,7 @@ class ProductAddToBasket extends Component{
   }
 }
 
-const actionToProps = (dispatch) => (
+const actionsToProps = (dispatch) => (
   {
     addProduct: (product) => {
       dispatch(addProductToBasket(product))
@@ -36,4 +36,4 @@ ProductAddToBasket.propTypes = {
     extraImages: PropTypes.array
   }),
 }
-export default connect(null, actionToProps)(ProductAddToBasket)
+export default connect(null, actionsToProps)(ProductAddToBasket)
