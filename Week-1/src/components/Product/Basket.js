@@ -12,7 +12,7 @@ class ProductBasket extends Component {
     return (
       <Fragment>
         <Link to={checkoutPath()}>
-          <button disabled={ !this.props.totalItems > 0}>
+          <button disabled={ this.props.totalItems == 0}>
             Basket { this.props.totalItems }
           </button>
         </Link>
