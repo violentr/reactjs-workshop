@@ -1,9 +1,9 @@
 import React, {Fragment} from 'react'
 import ProductCard from '~/src/components/Product/Card.js'
-import ProductAddToBasket from '~/src/components/Product/AddToBasket.js'
 import PropTypes from 'prop-types'
+import ProductAddToBasket from '~/src/components/Product/AddToBasket.js'
 
-const Catalog = ({products, addProduct}) => (
+const Catalog = ({products}) => (
   <div>
     {
       products && products.map((product, i) => (
@@ -11,7 +11,7 @@ const Catalog = ({products, addProduct}) => (
           <ProductCard key={product.id}
             product={product}
           />
-          <ProductAddToBasket key={i} item={product} addProduct={addProduct} />
+          <ProductAddToBasket key={i} product={product} />
         </Fragment>
       ))
     }

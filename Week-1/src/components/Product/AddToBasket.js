@@ -1,16 +1,39 @@
-import React, {Fragment} from 'react'
+import React, {Fragment, Component} from 'react'
 import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
+import {addProductToBasket} from '~/src/actions/Basket.js'
 
-const ProductAddToBasket =({item, addProduct}) => (
-  <Fragment>
-    <button onClick={() => addProduct(item)}>
-      Add To Basket
-    </button>
-  </Fragment>
+class ProductAddToBasket extends Component{
+  constructor(props){
+    super(props)
+  }
+  render(){
+    let {product, addProduct} = this.props
+    return (
+      <Fragment>
+        <button onClick={() => addProduct(product)}>
+          Add To Basket
+        </button>
+      </Fragment>
+    )
+  }
+}
+
+const actionToProps = (dispatch) => (
+  {
+    addProduct: (product) => {
+      dispatch(addProductToBasket(product))
+    }
+  }
 )
 
 ProductAddToBasket.propTypes = {
-  item: PropTypes.shape({}),
-  addProduct: PropTypes.func.isRequired
+  product: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    price: PropTypes.number,
+    imageUrl: PropTypes.string,
+    extraImages: PropTypes.array
+  }),
 }
-export default ProductAddToBasket
+export default connect(null, actionToProps)(ProductAddToBasket)
