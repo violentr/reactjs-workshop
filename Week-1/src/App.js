@@ -1,16 +1,52 @@
-import React, { Fragment } from 'react'
+import React, {Fragment} from 'react'
 import Layout from '~/src/components/Layout.js'
-import { BrowserRouter as Router } from 'react-router-dom'
-import ProductContainer from '~/src/containers/ProductContainer.js'
+import {BrowserRouter as Router, matchPath, Switch, Route} from 'react-router-dom'
+import {Provider} from 'react-redux'
+import store from '~/src/store'
+import routes from '~/src/routes/index.js'
+import {parse} from 'qs'
+import prepareData from '~/src/routes/prepareData.js'
+import DevTools from '~/src/containers/DevTools.js'
+import {render} from 'react-dom'
+import {createBrowserHistory} from 'history';
+
+const routeWithSubroutes = (route, key) => (
+  <Route {...route} key={key}/>
+)
+
+const history = createBrowserHistory()
+
+function historyCb(location, action='PUSH'){
+  const state = {params: {}, query: {}, routes: []}
+  routes.some((route) => {
+    const match = matchPath(location.pathname, route)
+    if (match){
+      state.routes.push(route)
+      Object.assign(state.params, match.params)
+      Object.assign(state.query, parse(location.search.substr(1)))
+    }
+    return match
+  })
+  prepareData(store, state)
+}
+
+history.listen(historyCb)
+historyCb(window.location)
+
 
 const App = () => (
   <Fragment>
+    <Provider store={store}>
       <Router>
-        <ProductContainer>
-          <Layout />
-        </ProductContainer>
+        <Layout>
+          <Switch>
+            { routes.map((route, key) => routeWithSubroutes(route, key))}
+          </Switch>
+        </Layout>
       </Router>
+    </Provider>
   </Fragment>
 )
+render(<DevTools store={store} />, document.getElementById('devtools'))
 
 export default App;

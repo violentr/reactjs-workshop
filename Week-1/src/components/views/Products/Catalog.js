@@ -1,26 +1,33 @@
-import React, { Fragment } from 'react'
+import React, {Fragment, Component} from 'react'
 import ProductCard from '~/src/components/Product/Card.js'
 import ProductAddToBasket from '~/src/components/Product/AddToBasket.js'
-import { imageAttributes } from '~/src/shared/helper.js'
-import PropTypes from 'prop-types'
-const Catalog = ({products}) => {
-  return (
-    <div>
-      {
-        products && products.map((product, i) => (
-          <Fragment key={i}>
-            <ProductCard key={product.id}
-              product={product} style={imageAttributes}
-            />
-            <ProductAddToBasket key={i} product={product} />
-          </Fragment>
-        ))
-      }
-    </div>
-  )
+import {connect} from 'react-redux'
+
+class Catalog extends Component {
+  constructor(props){
+    super(props)
+  }
+  render(){
+    let {products} = this.props
+    return (
+      <div>
+        {
+          products && products.map((product, i) => (
+            <Fragment key={i}>
+              <ProductCard key={product.id}
+                product={product}
+              />
+              <ProductAddToBasket key={i} product={product} />
+            </Fragment>
+          ))
+        }
+      </div>
+    )
+  }
 }
 
-Catalog.propTypes = {
-  products: PropTypes.array
-}
-export default Catalog
+const mapStateToProps = (state) => ({
+  products: state.products.entries
+})
+
+export default connect(mapStateToProps)(Catalog)

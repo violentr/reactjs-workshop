@@ -1,26 +1,30 @@
-import React, { Fragment } from 'react'
-import { ProductConsumer } from '~/src/context/ProductContext.js'
+import React, {Fragment, Component} from 'react'
 import ProductWrapper from '~/src/components/views/Product/Product.js'
-import PropTypes from 'prop-types'
+import {connect} from 'react-redux'
 
-const ProductPage = ({id}) => (
-  <Fragment>
-    <ProductConsumer>
-      { (productContext) => {
-        let products = productContext.products
-        let product = productContext.findById(products, id) || {}
-        return(
-          <Fragment>
-            <ProductWrapper product={product} />
-          </Fragment>
-        )}
-      }
-    </ProductConsumer>
-  </Fragment>
-)
+class ProductPage extends Component {
 
-ProductPage.propTypes = {
-  id: PropTypes.string.isRequired
+  constructor(props){
+    super(props)
+  }
+
+  render(){
+    let product = this.props.productId || {}
+    return (
+      <Fragment>
+        <ProductWrapper product={product} />
+      </Fragment>
+    )
+  }
 }
 
-export default ProductPage
+
+const mapStateToProps = (state, ownProps) => {
+  let {entries} = state.products
+  return {
+    items: entries,
+    productId: entries && entries.filter((item) => item.id == ownProps.id )[0]
+  }
+}
+
+export default connect(mapStateToProps)(ProductPage)

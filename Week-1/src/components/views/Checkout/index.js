@@ -1,35 +1,32 @@
-import React, { Fragment } from 'react'
+import React, {Fragment, Component} from 'react'
 import ProductCard from '~/src/components/Product/Card.js'
-import { imageAttributes } from '~/src/shared/helper.js'
-import { BasketConsumer } from '~/src/context/BasketContext.js'
+import {connect} from 'react-redux'
 
-const listProducts = (context) => {
-  let { basket, totalCost} = context
-  let products = basket.map((product, i) => (
-    <ProductCard key={i} product={product} style={imageAttributes}/>)
-  )
-  return(
-    <Fragment>
-      { products.length > 0 && products }
-      <p> Total: $ { totalCost(basket) } </p>
-    </Fragment>
-  )
+class CheckoutPage extends Component {
+
+  constructor(props){
+    super(props)
+  }
+
+  render(){
+    let {items, totalCost} = this.props
+    let products = items.map((product, i) => (
+      <ProductCard key={i} product={product}/>)
+    )
+    return (
+      <Fragment>
+        <h3> This is Checkout page </h3>
+        {products}
+        <p> Total: $ {totalCost} </p>
+      </Fragment>
+    )
+  }
 }
-const CheckoutPage = () => (
-  <Fragment>
-    <BasketConsumer >
-      {
-        (cartContext) =>{
-          return(
-          <Fragment>
-            <h3> This is Checkout page </h3>
-            { listProducts(cartContext) }
-          </Fragment>
-          )
-        }
-      }
-    </BasketConsumer>
-  </Fragment>
-)
 
-export default CheckoutPage
+const mapStateToProps = (state) => (
+  {
+    items: state.basket.items,
+    totalCost: state.basket.items.reduce((total, product) => total + product.price, 0)
+  }
+)
+export default connect(mapStateToProps)(CheckoutPage)
