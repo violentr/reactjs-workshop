@@ -1,6 +1,7 @@
 import React, {Fragment, Component} from 'react'
 import ProductCard from '~/src/components/Product/Card.js'
 import {connect} from 'react-redux'
+import {loadState} from '~/src/shared/cartPersistence.js'
 
 class CheckoutPage extends Component {
 
@@ -8,16 +9,20 @@ class CheckoutPage extends Component {
     super(props)
   }
 
+  totalCost(items){
+    return items.reduce((total, product) => total + product.price,0)
+  }
+
   render(){
-    let {items, totalCost} = this.props
-    let products = items.map((product, i) => (
+    let storedItems = loadState()
+    let products = storedItems.map((product, i) => (
       <ProductCard key={i} product={product}/>)
     )
     return (
       <Fragment>
         <h3> This is Checkout page </h3>
         {products}
-        <p> Total: $ {totalCost} </p>
+        <p> Total: $ {this.totalCost(storedItems)} </p>
       </Fragment>
     )
   }
@@ -25,8 +30,7 @@ class CheckoutPage extends Component {
 
 const mapStateToProps = (state) => (
   {
-    items: state.basket.items,
-    totalCost: state.basket.items.reduce((total, product) => total + product.price, 0)
+    items: state.basket.items
   }
 )
 export default connect(mapStateToProps)(CheckoutPage)

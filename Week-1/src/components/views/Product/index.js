@@ -1,6 +1,7 @@
 import React, {Fragment, Component} from 'react'
 import ProductWrapper from '~/src/components/views/Product/Product.js'
 import {connect} from 'react-redux'
+import {loadState} from '~/src/shared/cartPersistence.js'
 
 class ProductPage extends Component {
 
@@ -8,8 +9,13 @@ class ProductPage extends Component {
     super(props)
   }
 
+  findByProductId(id){
+    let entries = loadState()
+    return  entries && entries.filter((item) => item.id == id )[0]
+  }
+
   render(){
-    let product = this.props.productId || {}
+    let product = this.findByProductId(this.props.id) || {}
     return (
       <Fragment>
         <ProductWrapper product={product} />
@@ -19,11 +25,10 @@ class ProductPage extends Component {
 }
 
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   let {entries} = state.products
   return {
-    items: entries,
-    productId: entries && entries.filter((item) => item.id == ownProps.id )[0]
+    items: entries
   }
 }
 
