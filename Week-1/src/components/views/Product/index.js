@@ -10,8 +10,8 @@ class ProductPage extends Component {
   }
 
   findByProductId(id){
-    let entries = loadState()
-    return  entries && entries.filter((item) => item.id == id )[0]
+    let entries = loadState().length > 0 ? loadState() : this.props.items
+    return entries && entries.filter((item) => item.id == id )[0]
   }
 
   render(){
