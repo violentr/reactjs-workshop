@@ -1,27 +1,17 @@
 import * as ProductsActionTypes from '~/src/actiontypes/Products.js'
-import request from 'superagent'
-import API_URL from '~/src/constants/Api.js'
-
-const requestProducts = () => ({
-  type: ProductsActionTypes.FETCH_PRODUCTS_SUCCESS
-})
-
-const receiveProducts = (response) => ({
-  type: ProductsActionTypes.FETCH_PRODUCTS_SUCCESS,
-  response
-})
-
-const errorProducts = () => ({
-  type: ProductsActionTypes.FETCH_PRODUCTS_ERROR,
-})
+import {API_CALL} from '~/src/middleware/Api.js'
 
 export const fetchProducts = () => (
-  (dispatch) => {
-    dispatch(requestProducts())
-
-    request.get(API_URL)
-      .end((error, response) => {
-        error ? dispatch(errorProducts()) : dispatch(receiveProducts(response.body))
-      })
+  {
+    [API_CALL]: {
+      endPoint: '/',
+      method: "GET",
+      query: {},
+      types: [
+        ProductsActionTypes.FETCH_PRODUCTS_REQUEST,
+        ProductsActionTypes.FETCH_PRODUCTS_SUCCESS,
+        ProductsActionTypes.FETCH_PRODUCTS_FAILURE
+      ]
+    }
   }
 )
