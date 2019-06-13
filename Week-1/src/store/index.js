@@ -3,6 +3,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import reducers from '~/src/reducers'
 import DevTools from '~/src/containers/DevTools.js'
 import {saveState} from '~/src/shared/cartPersistence.js'
+import APIMiddleware from '~/src/middleware/Api.js'
 import * as BasketActionTypes from '~/src/actiontypes/Basket.js'
 
 const loggingMiddleware = (store) => (next) => (action) => {
@@ -11,7 +12,7 @@ const loggingMiddleware = (store) => (next) => (action) => {
   }
   return next(action);
 }
-const store = createStore(reducers, compose(applyMiddleware(thunk, loggingMiddleware), DevTools.instrument()))
+const store = createStore(reducers, compose(applyMiddleware(thunk, loggingMiddleware, APIMiddleware), DevTools.instrument()))
 
 store.subscribe(() => {
   let items = store.getState().basket.items
