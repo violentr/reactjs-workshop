@@ -6,21 +6,22 @@ import {saveState} from '~/src/shared/cartPersistence.js'
 import APIMiddleware from '~/src/middleware/Api.js'
 import * as BasketActionTypes from '~/src/actiontypes/Basket.js'
 
-const loggingMiddleware = (store) => (next) => (action) => {
+const basketMiddleware = (store) => (next) => (action) => {
   if (action.type === BasketActionTypes.ADD_TO_BASKET){
     console.dir(`current product ${action.product.title}`)
+    saveState([...store.getState().basket.items, action.product])
   }
-  return next(action);
+  return next(action)
 }
-const store = createStore(reducers, compose(applyMiddleware(thunk, loggingMiddleware, APIMiddleware), DevTools.instrument()))
+const store = createStore(reducers, compose(applyMiddleware(thunk, basketMiddleware, APIMiddleware), DevTools.instrument()))
 
-store.subscribe(() => {
-  let items = store.getState().basket.items
-
-  if (items.length > 0){
-    saveState(items)
-  }
-});
-
+//store.subscribe(() => {
+//  let items = store.getState().basket.items
+//
+//  if (items.length > 0){
+//    saveState(items)
+//  }
+//});
+//
 export default store
 
