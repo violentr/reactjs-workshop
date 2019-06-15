@@ -13,15 +13,15 @@ class CheckoutPage extends Component {
   }
 
   render(){
-    let basketItems= this.props.items.length > 0 ? this.props.items : this.props.storedItems
-    let products = basketItems.map((product, i) => (
+    let {items} = this.props
+    let products = items.map((product, i) => (
       <ProductCard key={i} product={product}/>)
     )
     return (
       <Fragment>
         <h3> This is Checkout page </h3>
         {products}
-        <p> Total: $ {this.totalCost(basketItems)} </p>
+        <p> Total: $ {this.totalCost(items)} </p>
       </Fragment>
     )
   }
@@ -29,8 +29,7 @@ class CheckoutPage extends Component {
 
 const mapStateToProps = (state) => (
   {
-    items: state.basket.items,
-    storedItems: state.basket.storedItems,
+    items: state.basket.items
   }
 )
 export default connect(mapStateToProps)(CheckoutPage)
