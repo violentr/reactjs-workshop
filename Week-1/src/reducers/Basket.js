@@ -1,8 +1,7 @@
 import * as BasketActionTypes from '~/src/actiontypes/Basket.js'
 
 const initialState = {
-  items: [],
-  storedItems: []
+  items: []
 }
 
 const Basket = (state=initialState, action) => {
@@ -10,7 +9,7 @@ const Basket = (state=initialState, action) => {
     case BasketActionTypes.ADD_TO_BASKET:
       return Object.assign({}, state, {items: [...state.items, action.product]})
     case BasketActionTypes.LOAD_CART:
-      return Object.assign({}, state, {storedItems: action.storedItems})
+      return Object.assign({}, state, {items: action.items})
     default:
       return state
   }
