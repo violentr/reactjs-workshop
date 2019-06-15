@@ -1,16 +1,15 @@
 import thunk from 'redux-thunk'
-import { createStore, applyMiddleware, compose } from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux'
 import reducers from '~/src/reducers'
 import DevTools from '~/src/containers/DevTools.js'
-import {loadState} from '~/src/shared/cartPersistence.js'
-import APIMiddleware from '~/src/middleware/Api.js'
-import BasketMiddleware from '~/src/middleware/basket.js'
 import {addProductsToStorage} from '~/src/actions/Basket.js'
 
-const middlewares = [thunk, BasketMiddleware, APIMiddleware]
-const store = createStore(reducers, compose(applyMiddleware(...middlewares), DevTools.instrument()))
+import APIMiddleware from '~/src/middleware/Api.js'
+import BasketMiddleware from '~/src/middleware/basket.js'
+import CartMiddleware from '~/src/middleware/cart.js'
 
-const persistedState = loadState()
+const middlewares = [thunk, BasketMiddleware, CartMiddleware, APIMiddleware]
+const store = createStore(reducers, compose(applyMiddleware(...middlewares), DevTools.instrument()))
 
 //store.subscribe(() => {
 //  let items = store.getState().basket.items
@@ -18,7 +17,7 @@ const persistedState = loadState()
 //  saveState(items)
 //});
 
-store.dispatch(addProductsToStorage(persistedState))
+store.dispatch(addProductsToStorage())
 
 export default store
 
