@@ -8,8 +8,15 @@ class ProductPage extends Component {
     super(props)
   }
 
+  findByProductId(id){
+    let {basketItems, items} = this.props
+    let entries = basketItems.length > 0 ? basketItems : items
+
+    return entries && entries.filter((item) => item.id == id )[0]
+  }
+
   render(){
-    let product = this.props.productId || {}
+    let product = this.findByProductId(this.props.id) || {}
     return (
       <Fragment>
         <ProductWrapper product={product} />
@@ -19,11 +26,11 @@ class ProductPage extends Component {
 }
 
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   let {entries} = state.products
   return {
     items: entries,
-    productId: entries && entries.filter((item) => item.id == ownProps.id )[0]
+    basketItems: state.basket.items
   }
 }
 

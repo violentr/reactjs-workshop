@@ -7,13 +7,13 @@ class ProductBasket extends Component {
   constructor(props){
     super(props)
   }
-
   render(){
+    let {items} = this.props
     return (
       <Fragment>
         <Link to={checkoutPath()}>
-          <button disabled={ this.props.totalItems == 0}>
-            Basket { this.props.totalItems }
+          <button disabled={ items.length == 0}>
+            Basket {items.length}
           </button>
         </Link>
         { this.props.children }
@@ -22,12 +22,8 @@ class ProductBasket extends Component {
   }
 }
 
-const mapStateToProps = (state) => (
-  {
-    items: state.basket.items,
-    totalItems: state.basket.items.length
-  }
-)
-
+const mapStateToProps = (state) => ({
+  items: state.basket.items
+})
 
 export default connect(mapStateToProps)(ProductBasket)

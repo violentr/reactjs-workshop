@@ -5,8 +5,18 @@ const addToBasket = (product) => ({
   product
 })
 
+const loadCart = () => ({
+  type: BasketActionTypes.LOAD_CART
+})
+
+
 export const addProductToBasket = (product) => (
   (dispatch) => {
     dispatch(addToBasket(product))
+  }
+)
+export const addProductsToStorage = () => (
+  (dispatch) => {
+    dispatch(loadCart())
   }
 )
