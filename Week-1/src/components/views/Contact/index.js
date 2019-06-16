@@ -29,18 +29,9 @@ class ContactPage  extends Component {
       <Fragment>
         <h1> Contact Us Form </h1>
         <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="name">Name :</label>
-            <input type="text" name="name" ref={this.generateRef('name')} />
-          </div>
-          <div>
-            <label htmlFor="name">Email :</label>
-            <input type="text" name="email" ref={this.generateRef('email')} />
-          </div>
-          <div>
-            <label htmlFor="message">Message : </label>
-            <textarea name="message" ref={this.generateRef('message')} />
-          </div>
+          <Text fieldName="name" label="Name" fieldRef={this.generateRef('name')} />
+          <Text fieldName="email" label="Email" fieldRef={this.generateRef('email')} />
+          <TextArea fieldName="message" label="Message" fieldRef={this.generateRef('message')} />
           <div>
             <input type="submit" value="Submit" />
           </div>
@@ -51,3 +42,33 @@ class ContactPage  extends Component {
 }
 
 export default ContactPage
+
+export class Text extends Component {
+  constructor(props){
+    super(props)
+  }
+  render(){
+    let {fieldName, label, fieldRef} = this.props
+    return (
+      <div>
+        <label htmlFor={fieldName} >{label}: </label>
+        <input type="text" id={fieldName} name={fieldName} ref={fieldRef} />
+      </div>
+    )
+  }
+}
+
+export class TextArea extends Component {
+  constructor(props){
+    super(props)
+  }
+  render(){
+    let {fieldName, label, fieldRef} = this.props
+    return (
+      <div>
+        <label htmlFor={fieldName}>{label}: </label>
+        <textarea id={fieldName} name={fieldName} ref={fieldRef} />
+      </div>
+    )
+  }
+}
