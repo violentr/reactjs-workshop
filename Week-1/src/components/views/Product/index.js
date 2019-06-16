@@ -1,7 +1,6 @@
 import React, {Fragment, Component} from 'react'
 import ProductWrapper from '~/src/components/views/Product/Product.js'
 import {connect} from 'react-redux'
-import {loadState} from '~/src/shared/cartPersistence.js'
 
 class ProductPage extends Component {
 
@@ -10,7 +9,9 @@ class ProductPage extends Component {
   }
 
   findByProductId(id){
-    let entries = loadState().length > 0 ? loadState() : this.props.items
+    let {basketItems, items} = this.props
+    let entries = basketItems.length > 0 ? basketItems : items
+
     return entries && entries.filter((item) => item.id == id )[0]
   }
 
@@ -28,7 +29,8 @@ class ProductPage extends Component {
 const mapStateToProps = (state) => {
   let {entries} = state.products
   return {
-    items: entries
+    items: entries,
+    basketItems: state.basket.items
   }
 }
 
