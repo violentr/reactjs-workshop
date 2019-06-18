@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {Field, reduxForm} from 'redux-form'
 
 let CheckoutForm = (props) => {
@@ -27,4 +28,4 @@ CheckoutForm = reduxForm({
   form: 'checkout'
 })(CheckoutForm)
 
-export default CheckoutForm
+export default connect()(CheckoutForm)

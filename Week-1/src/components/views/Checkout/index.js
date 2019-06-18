@@ -10,15 +10,13 @@ class CheckoutPage extends Component {
   }
 
   totalCost(items){
-    return items.reduce((total, product) => total + product.price,0)
+    return items.reduce((total, product) => total + product.price, 0)
   }
-  handleSubmit(e){
+
+  handleSubmit = (e) => {
     e.preventDefault()
-    if (this.props.form){
-      let values = this.props.form
-      console.log("event", values)
-      alert(JSON.stringify(values))
-    }
+    let {form} = this.props
+    alert(JSON.stringify(form))
   }
 
   render(){
@@ -41,7 +39,7 @@ const mapStateToProps = (state) => {
 console.log("form", state.form)
 return  {
   items: state.basket.items,
-
+  form: state.form.checkout && state.form.checkout.values
   }
 }
 export default connect(mapStateToProps)(CheckoutPage)
