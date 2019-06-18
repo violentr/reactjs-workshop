@@ -9,6 +9,10 @@ const loadCart = () => ({
   type: BasketActionTypes.LOAD_CART
 })
 
+const emptyCart = () => ({
+  type: BasketActionTypes.EMPTY_CART
+})
+
 
 export const addProductToBasket = (product) => (
   (dispatch) => {
@@ -18,5 +22,10 @@ export const addProductToBasket = (product) => (
 export const addProductsToStorage = () => (
   (dispatch) => {
     dispatch(loadCart())
+  }
+)
+export const emptyBasket = () => (
+  (dispatch) => {
+    dispatch(emptyCart())
   }
 )

@@ -10,6 +10,8 @@ const Basket = (state=initialState, action) => {
       return Object.assign({}, state, {items: [...state.items, action.product]})
     case BasketActionTypes.LOAD_CART:
       return Object.assign({}, state, {items: action.items})
+    case BasketActionTypes.EMPTY_CART:
+      return Object.assign({}, state, {items: []})
     default:
       return state
   }

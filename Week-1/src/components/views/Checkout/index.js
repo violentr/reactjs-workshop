@@ -2,6 +2,7 @@ import React, {Fragment, Component} from 'react'
 import ProductCard from '~/src/components/Product/Card.js'
 import {connect} from 'react-redux'
 import CheckoutForm from '~/src/components/views/Checkout/Form.js'
+import {emptyBasket} from '~/src/actions/Basket.js'
 
 const totalCost = (items) => {
   return items.reduce((total, product) => total + product.price, 0)
@@ -27,6 +28,7 @@ class CheckoutPage extends Component {
 
     alert(JSON.stringify(Object.assign({}, customer, this.order)))
     console.log(JSON.stringify(Object.assign({}, customer, this.order)))
+    this.props.emptyCart()
   }
 
   currentOrder(){
@@ -63,4 +65,10 @@ const mapStateToProps = (state) => (
     form: state.form.checkout && state.form.checkout.values
   }
 )
-export default connect(mapStateToProps)(CheckoutPage)
+const actionsToProps = (dispatch) => (
+  {
+    emptyCart: () => { dispatch(emptyBasket()) }
+  }
+)
+
+export default connect(mapStateToProps, actionsToProps)(CheckoutPage)
