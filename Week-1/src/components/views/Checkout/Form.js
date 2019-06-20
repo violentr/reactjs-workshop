@@ -62,7 +62,7 @@ let CheckoutForm = (props) => {
         component={renderField}
         label="Email"
       />
-      <button type="submit" >Submit</button>
+      {props.dirty && <button type="submit">Send</button> }
     </form>
   )
 }
