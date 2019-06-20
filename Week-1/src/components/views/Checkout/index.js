@@ -1,7 +1,8 @@
 import React, {Fragment, Component} from 'react'
 import ProductCard from '~/src/components/Product/Card.js'
-import {connect} from 'react-redux'
 import CheckoutForm from '~/src/components/views/Checkout/Form.js'
+
+import {connect} from 'react-redux'
 import {emptyBasket} from '~/src/actions/Basket.js'
 
 const totalCost = (items) => {
@@ -22,13 +23,16 @@ class CheckoutPage extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    let {form} = this.props
+    let {form, errors, emptyCart} = this.props
+    console.log("errors", JSON.stringify(errors))
     let customer = {customer: form}
     this.currentOrder()
 
-    alert(JSON.stringify(Object.assign({}, customer, this.order)))
-    console.log(JSON.stringify(Object.assign({}, customer, this.order)))
-    this.props.emptyCart()
+    if (!errors){
+      alert(JSON.stringify(Object.assign({}, customer, this.order)))
+      console.log(JSON.stringify(Object.assign({}, customer, this.order)))
+      emptyCart()
+    }
   }
 
   currentOrder(){
@@ -62,7 +66,8 @@ class CheckoutPage extends Component {
 const mapStateToProps = (state) => (
   {
     items: state.basket.items,
-    form: state.form.checkout && state.form.checkout.values
+    form: state.form.checkout && state.form.checkout.values,
+    errors: state.form.checkout && state.form.checkout.syncErrors
   }
 )
 const actionsToProps = (dispatch) => (
