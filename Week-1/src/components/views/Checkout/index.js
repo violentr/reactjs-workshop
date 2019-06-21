@@ -48,7 +48,7 @@ class CheckoutPage extends Component {
   }
 
   render(){
-    let {items} = this.props
+    let {items, totalCost} = this.props
     let products = items.map((product, i) => (
       <ProductCard key={i} product={product}/>)
     )
@@ -67,7 +67,10 @@ const mapStateToProps = (state) => (
   {
     items: state.basket.items,
     form: state.form.checkout && state.form.checkout.values,
-    errors: state.form.checkout && state.form.checkout.syncErrors
+    errors: state.form.checkout && state.form.checkout.syncErrors,
+    totalCost:  () => {
+      return state.basket.items.reduce((total, product) => total + product.price, 0)
+    }
   }
 )
 const actionsToProps = (dispatch) => (
