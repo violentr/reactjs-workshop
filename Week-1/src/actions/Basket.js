@@ -15,17 +15,11 @@ const emptyCart = () => ({
 
 
 export const addProductToBasket = (product) => (
-  (dispatch) => {
-    dispatch(addToBasket(product))
-  }
+  addToBasket(product)
 )
 export const addProductsToStorage = () => (
-  (dispatch) => {
-    dispatch(loadCart())
-  }
+  loadCart()
 )
 export const emptyBasket = () => (
-  (dispatch) => {
-    dispatch(emptyCart())
-  }
+  emptyCart()
 )
