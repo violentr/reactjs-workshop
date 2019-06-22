@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
     "dev": "webpack-dev-server --config ./initializers/webpack/development.js",
+    "build": "webpack --config ./initializers/webpack/production.js",
     "lint": "eslint src/**/*.js; exit 0"
   },
   "keywords": [],
@@ -36,6 +37,7 @@
     "css-loader": "^3.0.0",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.12.4",
+    "html-webpack-plugin": "^3.2.0",
     "redux-devtools": "^3.5.0",
     "redux-devtools-dock-monitor": "^1.1.3",
     "redux-devtools-log-monitor": "^1.4.0",
