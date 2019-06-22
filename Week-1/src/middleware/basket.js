@@ -7,5 +7,8 @@ export default (store) => (next) => (action) => {
     console.log(`current product ${action.product.title}`)
     saveState([...store.getState().basket.items, action.product])
   }
+  else if (action.type === BasketActionTypes.EMPTY_CART){
+    saveState([])
+  }
   return next(action)
 }
