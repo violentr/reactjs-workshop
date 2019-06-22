@@ -17,13 +17,6 @@ module.exports = {
         ],
         use: 'babel-loader'
       },
-      {
-        test: /\.css$/,
-        use: [
-          {loader: 'style-loader', options: {sourceMap: true}},
-          {loader: 'css-loader', options: {sourceMap: true}}
-        ],
-      }
     ]
   },
   resolve: {
