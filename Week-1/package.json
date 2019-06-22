@@ -6,9 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
-    "dev": "webpack-dev-server --config ./initializers/webpack/development.js",
-    "build": "webpack --config ./initializers/webpack/production.js",
     "cleanup": "rm -rf public/assets",
+    "build:dev": "webpack --config ./initializers/webpack/development.js",
+    "build": "webpack --config ./initializers/webpack/production.js",
+    "dev": "webpack-dev-server --config ./initializers/webpack/development.js",
+    "prod": "serve -s ./public",
     "lint": "eslint src/**/*.js; exit 0"
   },
   "keywords": [],
