@@ -1,5 +1,5 @@
-import * as ProductsActionTypes from '~/src/actiontypes/Products.js'
-import {API_CALL} from '~/src/middleware/Api.js'
+import * as ProductsActionTypes from 'actiontypes/Products.js'
+import {API_CALL} from 'middleware/Api.js'
 
 export const fetchProducts = () => (
   {

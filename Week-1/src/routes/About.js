@@ -1,5 +1,5 @@
-import { aboutPath } from '~/src/routes/helpers.js'
-import AboutPage from '~/src/components/views/About/index.js'
+import { aboutPath } from 'routes/helpers.js'
+import AboutPage from 'components/views/About/index.js'
 
 export default {
   path: aboutPath(),

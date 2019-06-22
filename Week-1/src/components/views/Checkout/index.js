@@ -1,9 +1,9 @@
 import React, {Fragment, Component} from 'react'
-import ProductCard from '~/src/components/Product/Card.js'
-import CheckoutForm from '~/src/components/views/Checkout/Form.js'
+import ProductCard from 'components/Product/Card.js'
+import CheckoutForm from 'components/views/Checkout/Form.js'
 
 import {connect} from 'react-redux'
-import {emptyBasket} from '~/src/actions/Basket.js'
+import {emptyBasket} from 'actions/Basket.js'
 
 const totalCost = (items) => {
   return items.reduce((total, product) => total + product.price, 0)

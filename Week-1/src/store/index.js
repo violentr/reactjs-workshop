@@ -1,11 +1,11 @@
 import {createStore, applyMiddleware, compose} from 'redux'
-import reducers from '~/src/reducers'
-import DevTools from '~/src/containers/DevTools.js'
-import {addProductsToStorage} from '~/src/actions/Basket.js'
+import reducers from 'reducers'
+import DevTools from 'containers/DevTools.js'
+import {addProductsToStorage} from 'actions/Basket.js'
 
-import APIMiddleware from '~/src/middleware/Api.js'
-import BasketMiddleware from '~/src/middleware/basket.js'
-import CartMiddleware from '~/src/middleware/cart.js'
+import APIMiddleware from 'middleware/Api.js'
+import BasketMiddleware from 'middleware/basket.js'
+import CartMiddleware from 'middleware/cart.js'
 
 const middlewares = [BasketMiddleware, CartMiddleware, APIMiddleware]
 const store = createStore(reducers, compose(applyMiddleware(...middlewares), DevTools.instrument()))

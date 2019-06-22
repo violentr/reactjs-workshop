@@ -1,5 +1,5 @@
 import React, {Fragment, Component} from 'react'
-import ProductWrapper from '~/src/components/views/Product/Product.js'
+import ProductWrapper from 'components/views/Product/Product.js'
 import {connect} from 'react-redux'
 
 class ProductPage extends Component {

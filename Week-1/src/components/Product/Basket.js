@@ -1,7 +1,7 @@
 import React, {Component, Fragment}  from 'react'
 import {connect} from 'react-redux'
 import {Link}  from 'react-router-dom'
-import {checkoutPath} from '~/src/routes/helpers.js'
+import {checkoutPath} from 'routes/helpers.js'
 
 class ProductBasket extends Component {
   constructor(props){

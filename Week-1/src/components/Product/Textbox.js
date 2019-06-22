@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { productPath } from '~/src/routes/helpers.js'
+import { productPath } from 'routes/helpers.js'
 import PropTypes from 'prop-types'
 
 const ProductTextBox = ({id, title}) =>(

@@ -1,9 +1,9 @@
 import React from 'react'
 import ProductImage from './Image.js'
-import ProductTextBox from '~/src/components/Product/Textbox.js'
-import ProductPrice from '~/src/components/Product/Price.js'
+import ProductTextBox from 'components/Product/Textbox.js'
+import ProductPrice from 'components/Product/Price.js'
 import PropTypes from 'prop-types'
-import {imageAttributes} from '~/src/shared/helper.js'
+import {imageAttributes} from 'shared/helper.js'
 const Card = ({product}) => (
   <div>
     <ProductImage
