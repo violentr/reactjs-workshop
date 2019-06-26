@@ -3,18 +3,13 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {addProductToBasket} from 'actions/Basket.js'
 
-class ProductAddToBasket extends Component{
-  render(){
-    let {product, addProduct} = this.props
-    return (
-      <Fragment>
-        <button onClick={() => addProduct(product)}>
-          Add To Basket
-        </button>
-      </Fragment>
-    )
-  }
-}
+const ProductAddToBasket = ({product, addProduct}) => (
+  <Fragment>
+    <button onClick={() => addProduct(product)}>
+      Add To Basket
+    </button>
+  </Fragment>
+)
 
 const actionsToProps = (dispatch) => (
   {
