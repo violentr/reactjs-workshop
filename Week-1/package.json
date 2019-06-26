@@ -27,7 +27,6 @@
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
     "redux-form": "^8.2.4",
-    "src": "^1.1.2",
     "superagent": "^5.0.5"
   },
   "devDependencies": {
