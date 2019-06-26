@@ -4,9 +4,6 @@ import {Link}  from 'react-router-dom'
 import {checkoutPath} from 'routes/helpers.js'
 
 class ProductBasket extends Component {
-  constructor(props){
-    super(props)
-  }
   render(){
     let {items} = this.props
     return (

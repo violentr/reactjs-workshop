@@ -4,10 +4,6 @@ import {connect} from 'react-redux'
 
 class ProductPage extends Component {
 
-  constructor(props){
-    super(props)
-  }
-
   findByProductId(id){
     let {basketItems, items} = this.props
     let entries = basketItems.length > 0 ? basketItems : items

@@ -4,9 +4,7 @@ import ProductAddToBasket from 'components/Product/AddToBasket.js'
 import {connect} from 'react-redux'
 
 class Catalog extends Component {
-  constructor(props){
-    super(props)
-  }
+
   render(){
     let {products} = this.props
     return (

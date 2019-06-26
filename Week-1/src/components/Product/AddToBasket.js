@@ -4,9 +4,6 @@ import {connect} from 'react-redux'
 import {addProductToBasket} from 'actions/Basket.js'
 
 class ProductAddToBasket extends Component{
-  constructor(props){
-    super(props)
-  }
   render(){
     let {product, addProduct} = this.props
     return (

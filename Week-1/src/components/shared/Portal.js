@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-const Portal =(props) => {
+const Portal = (props) => {
   let {children, container} = props
   return(
     ReactDOM.createPortal(children, container)
