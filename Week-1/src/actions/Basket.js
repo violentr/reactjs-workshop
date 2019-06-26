@@ -1,4 +1,4 @@
-import * as BasketActionTypes from 'actiontypes/Basket.js'
+import * as BasketActionTypes from 'actions/actiontypes/Basket.js'
 
 const addToBasket = (product) => ({
   type: BasketActionTypes.ADD_TO_BASKET,

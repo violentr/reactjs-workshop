@@ -1,5 +1,5 @@
 import {saveState} from 'middleware/cartPersistence.js'
-import * as BasketActionTypes from 'actiontypes/Basket.js'
+import * as BasketActionTypes from 'actions/actiontypes/Basket.js'
 
 export default (store) => (next) => (action) => {
 

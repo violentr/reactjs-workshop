@@ -1,4 +1,4 @@
-import * as ProductsActionTypes from 'actiontypes/Products.js'
+import * as ProductsActionTypes from 'actions/actiontypes/Products.js'
 import {API_CALL} from 'middleware/Api.js'
 
 export const fetchProducts = () => (

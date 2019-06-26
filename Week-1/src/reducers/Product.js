@@ -1,4 +1,4 @@
-import * as ProductActionTypes from 'actiontypes/Product.js'
+import * as ProductActionTypes from 'actions/actiontypes/Product.js'
 
 const initialState = {
   isFetching: false,
