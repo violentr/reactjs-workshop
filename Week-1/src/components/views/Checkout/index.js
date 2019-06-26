@@ -11,39 +11,23 @@ const totalCost = (items) => {
 
 class CheckoutPage extends Component {
 
-  constructor(props){
-    super(props)
-
-    this.order = {
-      products: [],
-      totalItems: null,
-      totalCost: null
-    }
-  }
-
   handleSubmit = (e) => {
     e.preventDefault()
-    let {form, errors, emptyCart} = this.props
+    let {form, errors, emptyCart, products, totalCost} = this.props
     console.log("errors", JSON.stringify(errors))
     let customer = {customer: form}
-    this.currentOrder()
+    this.props.currentOrder()
+
+    let order = {
+      products: products,
+      totalCost: totalCost(),
+      totalItems: products.length
+    }
 
     if (!errors){
-      alert(JSON.stringify(Object.assign({}, customer, this.order)))
-      console.log(JSON.stringify(Object.assign({}, customer, this.order)))
+      alert(JSON.stringify(Object.assign({}, customer, order)))
+      console.log(JSON.stringify(Object.assign({}, customer, order)))
       emptyCart()
-    }
-  }
-
-  currentOrder(){
-    let {items} = this.props
-
-    if (items.length > 0) {
-      items.map((item) =>(
-        this.order.products.push([item.title, item.price])
-      ))
-      this.order.totalItems = items.length
-      this.order.totalCost = totalCost(items)
     }
   }
 
@@ -63,16 +47,28 @@ class CheckoutPage extends Component {
   }
 }
 
-const mapStateToProps = (state) => (
-  {
+const mapStateToProps = (state) => {
+  let props = {
     items: state.basket.items,
     form: state.form.checkout && state.form.checkout.values,
     errors: state.form.checkout && state.form.checkout.syncErrors,
-    totalCost:  () => {
-      return state.basket.items.reduce((total, product) => total + product.price, 0)
+    products: []
+  }
+  let items = props.items
+
+  props.totalCost = () => {
+    return items.reduce((total, product) => total + product.price, 0)
+  }
+  props.currentOrder =  () => {
+    if (items.length > 0) {
+      items.map((item) =>(
+        props.products.push([item.title, item.price])
+      ))
+      props.totalCost = props.totalCost(items)
     }
   }
-)
+  return props
+}
 const actionsToProps = (dispatch) => (
   {
     emptyCart: () => { dispatch(emptyBasket()) }
