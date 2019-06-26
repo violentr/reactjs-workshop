@@ -1,6 +1,6 @@
 import React,{ Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import  'css/styles.css'
+import  'App.css'
 
 const productImage = document.getElementById('product-image')
 
