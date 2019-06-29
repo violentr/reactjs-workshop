@@ -6,7 +6,6 @@ import store from 'store'
 import routes from 'routes/index.js'
 import {parse} from 'qs'
 import prepareData from 'routes/prepareData.js'
-import DevTools from 'containers/DevTools.js'
 import {render} from 'react-dom'
 import {createBrowserHistory} from 'history';
 
@@ -47,6 +46,5 @@ const App = () => (
     </Provider>
   </Fragment>
 )
-render(<DevTools store={store} />, document.getElementById('devtools'))
 
 export default App;
