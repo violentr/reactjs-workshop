@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react'
-import Order from 'components/views/Checkout/Order.js'
+import Order from 'components/views/Checkout/Order'
 
 const CheckoutPage = () => (
   <Fragment>

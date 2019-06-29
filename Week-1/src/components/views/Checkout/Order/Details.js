@@ -3,7 +3,7 @@ import ProductCard from 'components/Product/Card.js'
 import CheckoutForm from 'components/views/Checkout/Form.js'
 
 
-const OrderSummary = ({items, totalCost, handleSubmit}) => {
+const Details = ({items, totalCost, handleSubmit}) => {
 
   let products = items.map((product, i) => (
     <ProductCard key={i} product={product}/>)
@@ -17,4 +17,4 @@ const OrderSummary = ({items, totalCost, handleSubmit}) => {
   )
 }
 
-export default OrderSummary
+export default Details

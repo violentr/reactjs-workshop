@@ -1,7 +1,7 @@
 import React, {Fragment, Component} from 'react'
 import ProductCard from 'components/Product/Card.js'
 import CheckoutForm from 'components/views/Checkout/Form.js'
-import OrderSummary from 'components/views/Checkout/OrderSummary.js'
+import OrderDetails from 'components/views/Checkout/Order/Details.js'
 
 import {connect} from 'react-redux'
 import {emptyBasket} from 'actions/Basket.js'
@@ -32,7 +32,7 @@ class Order extends Component {
   render(){
     return (
       <Fragment>
-        <OrderSummary
+        <OrderDetails
           items={this.props.items}
           totalCost={this.props.totalCost}
           handleSubmit={this.handleSubmit}
