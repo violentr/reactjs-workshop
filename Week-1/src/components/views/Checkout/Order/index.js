@@ -14,11 +14,10 @@ class Order extends Component {
 
     console.log("errors", JSON.stringify(errors))
     let customer = {customer: form}
-    this.props.currentOrder()
 
     let order = {
       products: products,
-      totalCost: totalCost(),
+      totalCost: totalCost,
       totalItems: products.length
     }
 
@@ -43,25 +42,14 @@ class Order extends Component {
 }
 
 const mapStateToProps = (state) => {
+  let {items} = state.basket
+
   let props = {
-    items: state.basket.items,
+    items: items,
     form: state.form.checkout && state.form.checkout.values,
     errors: state.form.checkout && state.form.checkout.syncErrors,
-    products: []
-  }
-  let items = props.items
-
-  props.totalCost = () => {
-    return items.reduce((total, product) => total + product.price, 0)
-  }
-
-  props.currentOrder =  () => {
-    if (items.length > 0) {
-      items.map((item) =>(
-        props.products.push([item.title, item.price])
-      ))
-      props.totalCost = props.totalCost(items)
-    }
+    products: items.map(item => ([item.title, item.price])),
+    totalCost: items.reduce((total, product) => total + product.price, 0)
   }
   return props
 }

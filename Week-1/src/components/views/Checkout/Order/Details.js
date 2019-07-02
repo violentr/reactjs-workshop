@@ -11,7 +11,7 @@ const Details = ({items, totalCost, handleSubmit}) => {
   return (
     <Fragment>
       {products}
-      <p> Total: $ {totalCost(items)} </p>
+      <p> Total: $ {totalCost} </p>
       { items.length > 0 && <CheckoutForm handleSubmit={handleSubmit}/> }
     </Fragment>
   )
