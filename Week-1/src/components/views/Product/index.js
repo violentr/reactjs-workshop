@@ -4,15 +4,8 @@ import {connect} from 'react-redux'
 
 class ProductPage extends Component {
 
-  findByProductId(id){
-    let {basketItems, items} = this.props
-    let entries = basketItems.length > 0 ? basketItems : items
-
-    return entries && entries.filter((item) => item.id == id )[0]
-  }
-
   render(){
-    let product = this.findByProductId(this.props.id) || {}
+    let product = this.props.product
     return (
       <Fragment>
         <ProductWrapper product={product} />
@@ -22,11 +15,12 @@ class ProductPage extends Component {
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   let {entries} = state.products
   return {
     items: entries,
-    basketItems: state.basket.items
+    basketItems: state.basket.items,
+    product: entries && entries.filter((item) => item.id == ownProps.id )[0]
   }
 }
 
