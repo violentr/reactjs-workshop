@@ -1,12 +1,11 @@
 import React, {Fragment} from 'react'
-import Layout from '~/src/components/Layout.js'
+import Layout from 'components/Layout.js'
 import {BrowserRouter as Router, matchPath, Switch, Route} from 'react-router-dom'
 import {Provider} from 'react-redux'
-import store from '~/src/store'
-import routes from '~/src/routes/index.js'
+import store from 'store'
+import routes from 'routes/index.js'
 import {parse} from 'qs'
-import prepareData from '~/src/routes/prepareData.js'
-import DevTools from '~/src/containers/DevTools.js'
+import prepareData from 'routes/prepareData.js'
 import {render} from 'react-dom'
 import {createBrowserHistory} from 'history';
 
@@ -47,6 +46,5 @@ const App = () => (
     </Provider>
   </Fragment>
 )
-render(<DevTools store={store} />, document.getElementById('devtools'))
 
 export default App;

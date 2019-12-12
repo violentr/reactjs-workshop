@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react'
-import Gallery from '~/src/components/shared/Gallery.js'
-import Portal from '~/src/components/shared/Portal.js'
-import ProductCard from '~/src/components/Product/Card.js'
-import NotFoundPage from '~/src/components/views/NotFound/index.js'
+import Gallery from 'components/shared/Gallery.js'
+import Portal from 'components/shared/Portal.js'
+import ProductCard from 'components/Product/Card.js'
+import NotFoundPage from 'components/views/NotFound/index.js'
 import PropTypes from 'prop-types'
 
 const productImage = document.getElementById('product-image')

@@ -1,4 +1,4 @@
-import * as BasketActionTypes from '~/src/actiontypes/Basket.js'
+import * as BasketActionTypes from 'actions/actiontypes/Basket.js'
 
 const initialState = {
   items: []

@@ -1,10 +1,10 @@
-import MainPage from '~/src/routes/Main.js'
-import ProductPage from '~/src/routes/Product.js'
-import ProductsPage from '~/src/routes/Products.js'
-import AboutPage from '~/src/routes/About.js'
-import NotFoundPage from '~/src/routes/NotFound.js'
-import CheckoutPage from '~/src/routes/Checkout.js'
-import ContactPage from '~/src/routes/Contact.js'
+import MainPage from 'routes/Main.js'
+import ProductPage from 'routes/Product.js'
+import ProductsPage from 'routes/Products.js'
+import AboutPage from 'routes/About.js'
+import NotFoundPage from 'routes/NotFound.js'
+import CheckoutPage from 'routes/Checkout.js'
+import ContactPage from 'routes/Contact.js'
 
 export default [
   MainPage, ProductPage, ProductsPage,

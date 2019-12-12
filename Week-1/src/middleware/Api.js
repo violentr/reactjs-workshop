@@ -1,5 +1,5 @@
 import request from 'superagent'
-import API_URL from '~/src/constants/Api.js'
+import API_URL from 'constants/Api.js'
 import {stringify} from 'qs'
 
 function ApiCall({endpoint, method, query, payload}){

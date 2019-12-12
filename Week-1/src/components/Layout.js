@@ -1,7 +1,7 @@
 import React  from 'react'
-import {mainPath, aboutPath, productsPath, contactPath} from '~/src/routes/helpers.js'
+import {mainPath, aboutPath, productsPath, contactPath} from 'routes/helpers.js'
 import {NavLink} from 'react-router-dom'
-import ProductBasket from '~/src/components/Product/Basket.js'
+import ProductBasket from 'components/Product/Basket.js'
 import PropTypes from 'prop-types'
 
 const Layout = (props) => (
